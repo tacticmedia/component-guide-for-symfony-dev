@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Usage: tools/bin/publish <checkout of the published repository>
+# Replaces the content of the checkout, except .git, with the published paths at HEAD of this
+# repository. Uncommitted changes are not published. Review and commit the result in the checkout.
+# The published README.md has no development-repository-only blocks.
+set -euo pipefail
+
+published_paths=(.claude-plugin skills agents hooks README.md LICENSE LICENSE-CODE NOTICE.md)
+block_start='<!-- development-repository-only:start -->'
+block_end='<!-- development-repository-only:end -->'
+
+target=${1:?usage: publish <checkout of the published repository>}
+root=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd -P)
+
+[ -d "$target/.git" ] || { echo "$target is not a git checkout" >&2; exit 2; }
+target=$(cd "$target" && pwd -P)
+[ "$target" != "$root" ] || { echo "The target is this repository" >&2; exit 2; }
+
+archive=$(mktemp)
+trap 'rm -f "$archive" "$archive.readme"' EXIT
+git -C "$root" archive --format=tar --output="$archive" HEAD -- "${published_paths[@]}"
+
+readme=$(git -C "$root" show HEAD:README.md)
+[ "$(grep -c -F -- "$block_start" <<< "$readme")" = "$(grep -c -F -- "$block_end" <<< "$readme")" ] \
+    || { echo "README.md has a development-repository-only block without its end" >&2; exit 2; }
+
+plugin_version() { [ -f "$1" ] || return 0; sed -n 's/^ *"version": *"\([^"]*\)".*/\1/p' "$1" | head -n 1; }
+previous_version=$(plugin_version "$target/.claude-plugin/plugin.json")
+
+find "$target" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+tar -x -f "$archive" -C "$target"
+awk -v start="$block_start" -v end="$block_end" '
+    index($0, start) { skip = 1; next }
+    index($0, end) { skip = 0; trim = 1; next }
+    skip { next }
+    trim && /^$/ { trim = 0; next }
+    { trim = 0; print }
+' "$target/README.md" > "$archive.readme"
+mv "$archive.readme" "$target/README.md"
+
+version=$(plugin_version "$target/.claude-plugin/plugin.json")
+printf 'Published %s (version %s) to %s. Review and commit there.\n' "$(git -C "$root" rev-parse --short HEAD)" "$version" "$target"
+
+if [ -n "$(git -C "$root" status --porcelain -- "${published_paths[@]}")" ]; then
+    echo "Uncommitted changes in the published paths are not published." >&2
+fi
+if [ -n "$(git -C "$target" status --porcelain)" ] && [ "$previous_version" = "$version" ]; then
+    echo "The version in .claude-plugin/plugin.json is still $version. Users get the change only after the version changes." >&2
+fi

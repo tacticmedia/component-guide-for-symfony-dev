@@ -1,0 +1,30 @@
+{
+    "name": "tacticmedia/component-guide-for-symfony-dev",
+    "description": "Maintainer tools, tests and evals of Component Guide for Symfony.",
+    "type": "project",
+    "license": ["CC-BY-SA-4.0", "MIT"],
+    "require": {
+        "php": ">=8.4.1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.3.1",
+        "phpunit/phpunit": "^13.4.2",
+        "symfony/console": "^8.1.8",
+        "symfony/process": "^8.1.7"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ComponentGuide\\Tools\\": "tools/src/",
+            "ComponentGuide\\Tools\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "publish": "tools/bin/publish ../component-guide-for-symfony"
+    },
+    "scripts-descriptions": {
+        "publish": "Copy the published files at HEAD into ../component-guide-for-symfony, a checkout of the published repository."
+    }
+}

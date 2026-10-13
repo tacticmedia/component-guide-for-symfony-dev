@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: symfony-80-command-test
+description: In a Symfony 8.0 project, the answer does not use the 8.1-only KernelTestCase::runCommand() and does not ask for an upgrade.
+tags: [versions]
+context:
+  scaffold_script: scaffold.sh

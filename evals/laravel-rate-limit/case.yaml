@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: laravel-rate-limit
+description: In a Laravel project, the answer follows Laravel and does not push Symfony framework configuration.
+tags: [host-framework]
+context:
+  scaffold_script: scaffold.sh

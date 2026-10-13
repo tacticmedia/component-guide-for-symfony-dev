@@ -1,0 +1,121 @@
+{
+    "packages": [
+        {
+            "name": "symfony/cache",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/clock",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/config",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/dependency-injection",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/dotenv",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/error-handler",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/framework-bundle",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/mailer",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/mime",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/password-hasher",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/property-access",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/routing",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/runtime",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/security-bundle",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/security-core",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/security-http",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/string",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/twig-bridge",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/twig-bundle",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/validator",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/var-exporter",
+            "version": "v8.1.8"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v8.1.8"
+        }
+    ],
+    "packages-dev": []
+}

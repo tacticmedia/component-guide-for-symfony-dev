@@ -1,0 +1,8 @@
+parameters:
+    level: 8
+    paths:
+        - tools/src
+        - tools/bin/catalogue
+        - tests
+    excludePaths:
+        - tests/fixtures (?)

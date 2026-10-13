@@ -1,0 +1,425 @@
+schema_version: "1.1"
+name: router-accuracy
+description: Top-1 routing accuracy on 105 goals that a blind writer took from the details files. Run with --ablation none.
+tags: [router]
+graders:
+  - name: g001-ai-mate
+    type: regex
+    pattern: '^G001:\s*`?(packages/)?ai-mate(\.md)?`?\s*$'
+    flags: m
+  - name: g002-scheduler
+    type: regex
+    pattern: '^G002:\s*`?(packages/)?scheduler(\.md)?`?\s*$'
+    flags: m
+  - name: g003-string
+    type: regex
+    pattern: '^G003:\s*`?(packages/)?string(\.md)?`?\s*$'
+    flags: m
+  - name: g004-polyfill
+    type: regex
+    pattern: '^G004:\s*`?(packages/)?polyfill(\.md)?`?\s*$'
+    flags: m
+  - name: g005-tui
+    type: regex
+    pattern: '^G005:\s*`?(packages/)?tui(\.md)?`?\s*$'
+    flags: m
+  - name: g006-ux-autocomplete
+    type: regex
+    pattern: '^G006:\s*`?(packages/)?ux-autocomplete(\.md)?`?\s*$'
+    flags: m
+  - name: g007-clock
+    type: regex
+    pattern: '^G007:\s*`?(packages/)?clock(\.md)?`?\s*$'
+    flags: m
+  - name: g008-runtime
+    type: regex
+    pattern: '^G008:\s*`?(packages/)?runtime(\.md)?`?\s*$'
+    flags: m
+  - name: g009-ux-chartjs
+    type: regex
+    pattern: '^G009:\s*`?(packages/)?ux-chartjs(\.md)?`?\s*$'
+    flags: m
+  - name: g010-dom-crawler
+    type: regex
+    pattern: '^G010:\s*`?(packages/)?dom-crawler(\.md)?`?\s*$'
+    flags: m
+  - name: g011-ux-notify
+    type: regex
+    pattern: '^G011:\s*`?(packages/)?ux-notify(\.md)?`?\s*$'
+    flags: m
+  - name: g012-browser-kit
+    type: regex
+    pattern: '^G012:\s*`?(packages/)?browser-kit(\.md)?`?\s*$'
+    flags: m
+  - name: g013-validator
+    type: regex
+    pattern: '^G013:\s*`?(packages/)?validator(\.md)?`?\s*$'
+    flags: m
+  - name: g014-error-handler
+    type: regex
+    pattern: '^G014:\s*`?(packages/)?error-handler(\.md)?`?\s*$'
+    flags: m
+  - name: g015-mailer
+    type: regex
+    pattern: '^G015:\s*`?(packages/)?mailer(\.md)?`?\s*$'
+    flags: m
+  - name: g016-css-selector
+    type: regex
+    pattern: '^G016:\s*`?(packages/)?css-selector(\.md)?`?\s*$'
+    flags: m
+  - name: g017-panther
+    type: regex
+    pattern: '^G017:\s*`?(packages/)?panther(\.md)?`?\s*$'
+    flags: m
+  - name: g018-emoji
+    type: regex
+    pattern: '^G018:\s*`?(packages/)?emoji(\.md)?`?\s*$'
+    flags: m
+  - name: g019-framework-bundle-testing
+    type: regex
+    pattern: '^G019:\s*`?(packages/)?framework-bundle-testing(\.md)?`?\s*$'
+    flags: m
+  - name: g020-webhook
+    type: regex
+    pattern: '^G020:\s*`?(packages/)?webhook(\.md)?`?\s*$'
+    flags: m
+  - name: g021-language-tools
+    type: regex
+    pattern: '^G021:\s*`?(packages/)?language-tools(\.md)?`?\s*$'
+    flags: m
+  - name: g022-mime
+    type: regex
+    pattern: '^G022:\s*`?(packages/)?mime(\.md)?`?\s*$'
+    flags: m
+  - name: g023-object-mapper
+    type: regex
+    pattern: '^G023:\s*`?(packages/)?object-mapper(\.md)?`?\s*$'
+    flags: m
+  - name: g024-event-dispatcher
+    type: regex
+    pattern: '^G024:\s*`?(packages/)?event-dispatcher(\.md)?`?\s*$'
+    flags: m
+  - name: g025-json-streamer
+    type: regex
+    pattern: '^G025:\s*`?(packages/)?json-streamer(\.md)?`?\s*$'
+    flags: m
+  - name: g026-asset-mapper
+    type: regex
+    pattern: '^G026:\s*`?(packages/)?asset-mapper(\.md)?`?\s*$'
+    flags: m
+  - name: g027-monolog-bundle
+    type: regex
+    pattern: '^G027:\s*`?(packages/)?monolog-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g028-http-foundation
+    type: regex
+    pattern: '^G028:\s*`?(packages/)?http-foundation(\.md)?`?\s*$'
+    flags: m
+  - name: g029-lock
+    type: regex
+    pattern: '^G029:\s*`?(packages/)?lock(\.md)?`?\s*$'
+    flags: m
+  - name: g030-notifier
+    type: regex
+    pattern: '^G030:\s*`?(packages/)?notifier(\.md)?`?\s*$'
+    flags: m
+  - name: g031-config
+    type: regex
+    pattern: '^G031:\s*`?(packages/)?config(\.md)?`?\s*$'
+    flags: m
+  - name: g032-ux-cropperjs
+    type: regex
+    pattern: '^G032:\s*`?(packages/)?ux-cropperjs(\.md)?`?\s*$'
+    flags: m
+  - name: g033-property-access
+    type: regex
+    pattern: '^G033:\s*`?(packages/)?property-access(\.md)?`?\s*$'
+    flags: m
+  - name: g034-json-path
+    type: regex
+    pattern: '^G034:\s*`?(packages/)?json-path(\.md)?`?\s*$'
+    flags: m
+  - name: g035-form
+    type: regex
+    pattern: '^G035:\s*`?(packages/)?form(\.md)?`?\s*$'
+    flags: m
+  - name: g036-ai-bundle
+    type: regex
+    pattern: '^G036:\s*`?(packages/)?ai-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g037-http-kernel
+    type: regex
+    pattern: '^G037:\s*`?(packages/)?http-kernel(\.md)?`?\s*$'
+    flags: m
+  - name: g038-password-hasher
+    type: regex
+    pattern: '^G038:\s*`?(packages/)?password-hasher(\.md)?`?\s*$'
+    flags: m
+  - name: g039-semaphore
+    type: regex
+    pattern: '^G039:\s*`?(packages/)?semaphore(\.md)?`?\s*$'
+    flags: m
+  - name: g040-intl
+    type: regex
+    pattern: '^G040:\s*`?(packages/)?intl(\.md)?`?\s*$'
+    flags: m
+  - name: g041-web-link
+    type: regex
+    pattern: '^G041:\s*`?(packages/)?web-link(\.md)?`?\s*$'
+    flags: m
+  - name: g042-ai-platform
+    type: regex
+    pattern: '^G042:\s*`?(packages/)?ai-platform(\.md)?`?\s*$'
+    flags: m
+  - name: g043-mcp-bundle
+    type: regex
+    pattern: '^G043:\s*`?(packages/)?mcp-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g044-ux-icons
+    type: regex
+    pattern: '^G044:\s*`?(packages/)?ux-icons(\.md)?`?\s*$'
+    flags: m
+  - name: g045-reprise
+    type: regex
+    pattern: '^G045:\s*`?(packages/)?reprise(\.md)?`?\s*$'
+    flags: m
+  - name: g046-ux-map
+    type: regex
+    pattern: '^G046:\s*`?(packages/)?ux-map(\.md)?`?\s*$'
+    flags: m
+  - name: g047-ux-dropzone
+    type: regex
+    pattern: '^G047:\s*`?(packages/)?ux-dropzone(\.md)?`?\s*$'
+    flags: m
+  - name: g048-ldap
+    type: regex
+    pattern: '^G048:\s*`?(packages/)?ldap(\.md)?`?\s*$'
+    flags: m
+  - name: g049-ux-translator
+    type: regex
+    pattern: '^G049:\s*`?(packages/)?ux-translator(\.md)?`?\s*$'
+    flags: m
+  - name: g050-rate-limiter
+    type: regex
+    pattern: '^G050:\s*`?(packages/)?rate-limiter(\.md)?`?\s*$'
+    flags: m
+  - name: g051-flex
+    type: regex
+    pattern: '^G051:\s*`?(packages/)?flex(\.md)?`?\s*$'
+    flags: m
+  - name: g052-messenger
+    type: regex
+    pattern: '^G052:\s*`?(packages/)?messenger(\.md)?`?\s*$'
+    flags: m
+  - name: g053-ux-native
+    type: regex
+    pattern: '^G053:\s*`?(packages/)?ux-native(\.md)?`?\s*$'
+    flags: m
+  - name: g054-serializer
+    type: regex
+    pattern: '^G054:\s*`?(packages/)?serializer(\.md)?`?\s*$'
+    flags: m
+  - name: g055-ai-agent
+    type: regex
+    pattern: '^G055:\s*`?(packages/)?ai-agent(\.md)?`?\s*$'
+    flags: m
+  - name: g056-ux-calendar-link
+    type: regex
+    pattern: '^G056:\s*`?(packages/)?ux-calendar-link(\.md)?`?\s*$'
+    flags: m
+  - name: g057-stimulus-bundle
+    type: regex
+    pattern: '^G057:\s*`?(packages/)?stimulus-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g058-monolog-bridge
+    type: regex
+    pattern: '^G058:\s*`?(packages/)?monolog-bridge(\.md)?`?\s*$'
+    flags: m
+  - name: g059-routing
+    type: regex
+    pattern: '^G059:\s*`?(packages/)?routing(\.md)?`?\s*$'
+    flags: m
+  - name: g060-debug-bundle
+    type: regex
+    pattern: '^G060:\s*`?(packages/)?debug-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g061-ux-turbo
+    type: regex
+    pattern: '^G061:\s*`?(packages/)?ux-turbo(\.md)?`?\s*$'
+    flags: m
+  - name: g062-yaml
+    type: regex
+    pattern: '^G062:\s*`?(packages/)?yaml(\.md)?`?\s*$'
+    flags: m
+  - name: g063-type-info
+    type: regex
+    pattern: '^G063:\s*`?(packages/)?type-info(\.md)?`?\s*$'
+    flags: m
+  - name: g064-workflow
+    type: regex
+    pattern: '^G064:\s*`?(packages/)?workflow(\.md)?`?\s*$'
+    flags: m
+  - name: g065-process
+    type: regex
+    pattern: '^G065:\s*`?(packages/)?process(\.md)?`?\s*$'
+    flags: m
+  - name: g066-security-bundle
+    type: regex
+    pattern: '^G066:\s*`?(packages/)?security-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g067-security-csrf
+    type: regex
+    pattern: '^G067:\s*`?(packages/)?security-csrf(\.md)?`?\s*$'
+    flags: m
+  - name: g068-var-dumper
+    type: regex
+    pattern: '^G068:\s*`?(packages/)?var-dumper(\.md)?`?\s*$'
+    flags: m
+  - name: g069-mercure
+    type: regex
+    pattern: '^G069:\s*`?(packages/)?mercure(\.md)?`?\s*$'
+    flags: m
+  - name: g070-ux-vue
+    type: regex
+    pattern: '^G070:\s*`?(packages/)?ux-vue(\.md)?`?\s*$'
+    flags: m
+  - name: g071-options-resolver
+    type: regex
+    pattern: '^G071:\s*`?(packages/)?options-resolver(\.md)?`?\s*$'
+    flags: m
+  - name: g072-var-exporter
+    type: regex
+    pattern: '^G072:\s*`?(packages/)?var-exporter(\.md)?`?\s*$'
+    flags: m
+  - name: g073-expression-language
+    type: regex
+    pattern: '^G073:\s*`?(packages/)?expression-language(\.md)?`?\s*$'
+    flags: m
+  - name: g074-ux-live-component
+    type: regex
+    pattern: '^G074:\s*`?(packages/)?ux-live-component(\.md)?`?\s*$'
+    flags: m
+  - name: g075-doctrine-bridge
+    type: regex
+    pattern: '^G075:\s*`?(packages/)?doctrine-bridge(\.md)?`?\s*$'
+    flags: m
+  - name: g076-ai-store
+    type: regex
+    pattern: '^G076:\s*`?(packages/)?ai-store(\.md)?`?\s*$'
+    flags: m
+  - name: g077-dotenv
+    type: regex
+    pattern: '^G077:\s*`?(packages/)?dotenv(\.md)?`?\s*$'
+    flags: m
+  - name: g078-requirements-checker
+    type: regex
+    pattern: '^G078:\s*`?(packages/)?requirements-checker(\.md)?`?\s*$'
+    flags: m
+  - name: g079-property-info
+    type: regex
+    pattern: '^G079:\s*`?(packages/)?property-info(\.md)?`?\s*$'
+    flags: m
+  - name: g080-finder
+    type: regex
+    pattern: '^G080:\s*`?(packages/)?finder(\.md)?`?\s*$'
+    flags: m
+  - name: g081-dependency-injection
+    type: regex
+    pattern: '^G081:\s*`?(packages/)?dependency-injection(\.md)?`?\s*$'
+    flags: m
+  - name: g082-ux-toolkit
+    type: regex
+    pattern: '^G082:\s*`?(packages/)?ux-toolkit(\.md)?`?\s*$'
+    flags: m
+  - name: g083-http-client
+    type: regex
+    pattern: '^G083:\s*`?(packages/)?http-client(\.md)?`?\s*$'
+    flags: m
+  - name: g084-contracts
+    type: regex
+    pattern: '^G084:\s*`?(packages/)?contracts(\.md)?`?\s*$'
+    flags: m
+  - name: g085-stopwatch
+    type: regex
+    pattern: '^G085:\s*`?(packages/)?stopwatch(\.md)?`?\s*$'
+    flags: m
+  - name: g086-web-profiler-bundle
+    type: regex
+    pattern: '^G086:\s*`?(packages/)?web-profiler-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g087-framework-bundle
+    type: regex
+    pattern: '^G087:\s*`?(packages/)?framework-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g088-ai-chat
+    type: regex
+    pattern: '^G088:\s*`?(packages/)?ai-chat(\.md)?`?\s*$'
+    flags: m
+  - name: g089-cache
+    type: regex
+    pattern: '^G089:\s*`?(packages/)?cache(\.md)?`?\s*$'
+    flags: m
+  - name: g090-twig-bridge
+    type: regex
+    pattern: '^G090:\s*`?(packages/)?twig-bridge(\.md)?`?\s*$'
+    flags: m
+  - name: g091-html-sanitizer
+    type: regex
+    pattern: '^G091:\s*`?(packages/)?html-sanitizer(\.md)?`?\s*$'
+    flags: m
+  - name: g092-asset
+    type: regex
+    pattern: '^G092:\s*`?(packages/)?asset(\.md)?`?\s*$'
+    flags: m
+  - name: g093-twig-bundle
+    type: regex
+    pattern: '^G093:\s*`?(packages/)?twig-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g094-ux-react
+    type: regex
+    pattern: '^G094:\s*`?(packages/)?ux-react(\.md)?`?\s*$'
+    flags: m
+  - name: g095-ux-twig-component
+    type: regex
+    pattern: '^G095:\s*`?(packages/)?ux-twig-component(\.md)?`?\s*$'
+    flags: m
+  - name: g096-ux-abandoned
+    type: regex
+    pattern: '^G096:\s*`?(packages/)?ux-abandoned(\.md)?`?\s*$'
+    flags: m
+  - name: g097-phpunit-bridge
+    type: regex
+    pattern: '^G097:\s*`?(packages/)?phpunit-bridge(\.md)?`?\s*$'
+    flags: m
+  - name: g098-console
+    type: regex
+    pattern: '^G098:\s*`?(packages/)?console(\.md)?`?\s*$'
+    flags: m
+  - name: g099-remote-event
+    type: regex
+    pattern: '^G099:\s*`?(packages/)?remote-event(\.md)?`?\s*$'
+    flags: m
+  - name: g100-maker-bundle
+    type: regex
+    pattern: '^G100:\s*`?(packages/)?maker-bundle(\.md)?`?\s*$'
+    flags: m
+  - name: g101-ux-pagination
+    type: regex
+    pattern: '^G101:\s*`?(packages/)?ux-pagination(\.md)?`?\s*$'
+    flags: m
+  - name: g102-translation
+    type: regex
+    pattern: '^G102:\s*`?(packages/)?translation(\.md)?`?\s*$'
+    flags: m
+  - name: g103-filesystem
+    type: regex
+    pattern: '^G103:\s*`?(packages/)?filesystem(\.md)?`?\s*$'
+    flags: m
+  - name: g104-psr-http-message-bridge
+    type: regex
+    pattern: '^G104:\s*`?(packages/)?psr-http-message-bridge(\.md)?`?\s*$'
+    flags: m
+  - name: g105-uid
+    type: regex
+    pattern: '^G105:\s*`?(packages/)?uid(\.md)?`?\s*$'
+    flags: m

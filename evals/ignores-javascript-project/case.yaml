@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: ignores-javascript-project
+description: A JavaScript project without PHP does not load the skill.
+tags: [trigger]
+context:
+  scaffold_script: scaffold.sh

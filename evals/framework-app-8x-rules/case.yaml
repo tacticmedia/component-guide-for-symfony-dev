@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: framework-app-8x-rules
+description: New code in a Symfony 8.1 application follows the 8.0 removals - named constraint arguments, no fluent or XML configuration.
+tags: [rules]
+context:
+  scaffold_script: scaffold.sh

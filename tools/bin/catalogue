@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use ComponentGuide\Tools\Command\CheckCommand;
+use ComponentGuide\Tools\Command\RouterCommand;
+use ComponentGuide\Tools\Command\SplitCommand;
+use Symfony\Component\Console\Application;
+
+require dirname(__DIR__, 2).'/vendor/autoload.php';
+
+$application = new Application('catalogue');
+$application->addCommands([new SplitCommand(), new RouterCommand(), new CheckCommand()]);
+$application->run();

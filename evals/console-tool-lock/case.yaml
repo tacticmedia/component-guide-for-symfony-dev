@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: console-tool-lock
+description: A console tool without FrameworkBundle gets a Symfony Lock solution, not a hand-written lock file or framework configuration.
+tags: [trigger, standalone]
+context:
+  scaffold_script: scaffold.sh

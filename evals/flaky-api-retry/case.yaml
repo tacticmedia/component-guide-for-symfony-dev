@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: flaky-api-retry
+description: A retry need in a worker leads to the retry feature of HttpClient or Messenger, not a hand-written sleep loop.
+tags: [reinvention]
+context:
+  scaffold_script: scaffold.sh
