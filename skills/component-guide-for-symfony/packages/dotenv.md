@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-Applications read infrastructure settings, such as database URLs and API keys, from environment variables. Without help, each machine must set these variables in the shell or in the web server. The package reads them from dotenv files into the PHP superglobals, and real environment variables keep their priority.
+Web applications, CLI tools, workers and scheduled jobs read infrastructure settings, such as database URLs and API keys, from environment variables. Without help, each machine must set these variables in the shell or in the web server. The package reads them from dotenv files into the PHP superglobals, and real environment variables keep their priority.
 
 ## When to use it
 
@@ -25,7 +25,7 @@ Applications read infrastructure settings, such as database URLs and API keys, f
 
 - `file('.env')` with `explode('=', $line)` and `putenv("$name=$value")` -> `new Dotenv()->bootEnv(dirname(__DIR__).'/.env')` or `loadEnv()`.
 - `if (is_file(__DIR__.'/.env.local')) { ... }` checks for local and per-environment files -> `Dotenv::loadEnv()`, which applies the file cascade and the test rule.
-- `getenv('DATABASE_URL')` in application code -> `%env(DATABASE_URL)%` in the service configuration, `#[Autowire(env: 'DATABASE_URL')]` on a constructor argument, or `$_ENV['DATABASE_URL']`. Without `usePutenv()`, `getenv()` returns `false` for `.env` values.
+- `getenv('DATABASE_URL')` in application code -> `%env(DATABASE_URL)%` in the service configuration, `#[Autowire(env: 'DATABASE_URL')]` on a constructor argument, or `$_SERVER['DATABASE_URL']`. Without `usePutenv()`, `getenv()` returns `false` for `.env` values. If `variables_order` has no `E`, `$_ENV` does not get the real variables that no `.env` file sets.
 - `$debug = 'prod' !== $_SERVER['APP_ENV'];` in a front controller or a script -> `Dotenv::bootEnv()` with `setProdEnvs()`, which sets `APP_DEBUG`.
 - A hand-written PHP array of production values, loaded with `require` -> `composer dump-env prod` or `php bin/console dotenv:dump prod`, which write `.env.local.php`.
 - `var_dump($_ENV)` or `phpinfo()` to find the origin of a value -> `php bin/console debug:dotenv DATABASE_URL`.

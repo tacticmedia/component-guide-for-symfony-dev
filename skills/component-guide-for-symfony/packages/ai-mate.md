@@ -14,7 +14,7 @@ A coding agent cannot see the runtime state of a PHP application. Examples are t
 
 - Give a coding agent tools that read the state of a PHP or Symfony project during development.
 - Find the class that the dependency injection container gives for an interface, or the listeners with a given tag.
-- Find the cause of a failed or slow HTTP request in the debug data that the application recorded for that request.
+- Find the cause of a failed or slow HTTP request in the debug data that the application recorded for it.
 - Search the Monolog log files by text, regular expression, level, channel, date or context field.
 - Find the environment file that declares an environment variable, and show the value only in masked form.
 - Add a project-specific tool for the coding agent as a PHP method with an attribute.
@@ -23,10 +23,10 @@ A coding agent cannot see the runtime state of a PHP application. Examples are t
 
 ## Use it instead of
 
-- `bin/console debug:container | grep Mailer` or `bin/console debug:container <id>`, read as text -> `tools:call symfony-services --query=MailerInterface`, then `symfony-service-detail --id=<id>` with flags, tags and constructor arguments (`symfony-services`)
-- `bin/console debug:dotenv`, which prints the secret values in clear text -> `tools:call symfony-dotenv-check --key=<NAME>`, which shows the value only as a length and a masked preview (`symfony-dotenv-check`)
-- `tail -n 50 var/log/dev.log` -> `tools:call monolog-tail --limit=50 --level=error` (`monolog-tail`)
-- `grep -E "Timeout" var/log/*.log` -> `tools:call monolog-search --term=Timeout --level=error --from="-1 hour"` (`monolog-search`)
+- `bin/console debug:container | grep Mailer` or `bin/console debug:container <id>`, read as text -> `tools:call symfony-services --query=Mailer`, then `symfony-service-detail --id=<id>` with flags, tags and constructor arguments (`symfony-services`)
+- `bin/console debug:dotenv <NAME>`, which prints the secret value in clear text -> `tools:call symfony-dotenv-check --key=<NAME>`, which shows the value only as a length and a masked preview (`symfony-dotenv-check`)
+- `tail -n 50 var/log/dev.log` -> `tools:call monolog-tail --limit=50 --environment=dev` (`monolog-tail`)
+- `grep -i timeout var/log/*.log | grep "\.ERROR:"` -> `tools:call monolog-search --term=timeout --level=error` (`monolog-search`)
 - `grep 4711 var/log/*.log` to follow one order -> `tools:call monolog-context-search --key=order_id --value=4711` (`monolog-context-search`)
 - `curl http://localhost/_profiler/<token>` or a read of the files in `var/cache/dev/profiler/` -> `tools:call symfony-profiler-list --statusCode=500 --limit=5`, then `resources:read symfony-profiler://profile/<token>/exception` (`symfony-profiler-list`)
 - `php -v`, `php -m` and `uname -s` -> `tools:call server-info` (`server-info`)

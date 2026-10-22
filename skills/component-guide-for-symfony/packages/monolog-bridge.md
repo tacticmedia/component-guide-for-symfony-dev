@@ -19,7 +19,7 @@ Monolog does not know the console commands, HTTP requests, users, email sending 
 - Add the route, the controller, the user, the impersonator or the console command to each log record.
 - Watch the logs of the application live in a second terminal, filtered by level or channel.
 - Push log records to Elasticsearch in the Logstash format.
-- Give one class, or one constructor argument, its own logger channel with a PHP attribute.
+- Give one class, or one constructor argument, its own logger channel with a PHP attribute, through [MonologBundle](monolog-bundle.md).
 
 ## Use it instead of
 

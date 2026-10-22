@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-Serializers, validators and other libraries must know the properties of a class and the type of each property. This information comes from PHP type declarations, PHPDoc tags, getter and setter methods, constructor arguments and ORM mapping. The package asks these sources in a fixed order and returns the first answer that is not null.
+Serializers, validators and other libraries must know the properties of a class and the type of each property. Code generators, API documentation tools and AI agents that describe tool arguments need the same data. This information comes from PHP type declarations, PHPDoc tags, getter and setter methods, constructor arguments and ORM mapping. The package asks these sources in a fixed order and returns the first answer that is not null.
 
 ## When to use it
 
@@ -20,6 +20,7 @@ Serializers, validators and other libraries must know the properties of a class 
 - Get the short and long description of a property from its PHPDoc.
 - Deserialize a nested list of data objects when only PHPDoc gives the item type. See [Serializer](serializer.md).
 - Add not-null and type validation rules from the property types automatically. See [Validator](validator.md).
+- Build a JSON schema or API documentation from the properties, types and descriptions of a class. For the schema of an AI tool or of structured output, see [AI Agent](ai-agent.md) or [AI Platform](ai-platform.md).
 
 ## Use it instead of
 

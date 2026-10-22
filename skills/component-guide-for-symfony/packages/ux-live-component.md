@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony UX 3.5
 
-**Elevator pitch:** Use when one page region must render again on the server after each user input, such as live search, field validation, dependent fields or polling. It keeps the state in PHP properties and sends the new HTML over Ajax, with no custom JavaScript. For page navigation, page parts from other URLs and server push, see [UX Turbo](ux-turbo.md).
+**Elevator pitch:** Use when one page region must render again on the server after each user input, such as live search, field validation, dependent fields or polling. It keeps the state in PHP properties and sends the new HTML over Ajax, with no custom JavaScript. For page navigation, page parts from other URLs and server push, see [Symfony UX Turbo](ux-turbo.md).
 
 **Details:** [../details/ux-live-component.md](../details/ux-live-component.md)
 

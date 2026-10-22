@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when the classes of an application, a CLI tool or a worker must receive their dependencies and settings, and must not create them. The package creates the objects and connects them by the types of their constructor arguments. It also injects environment variables, collects all implementations of one kind, and delays heavy objects until first use.
+**Elevator pitch:** Use when the classes of an application, a CLI tool or a worker must receive their dependencies and settings, and must not create them. The package creates the objects and connects them by the types of their constructor arguments. It also injects environment variables, collects all implementations of one kind, and delays heavy objects until first use. To load environment variables from dotenv files, see [Dotenv](dotenv.md). To validate the nested configuration of a reusable package, see [Config](config.md).
 
 **Details:** [../details/dependency-injection.md](../details/dependency-injection.md)
 

@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony UX 3.5
 
-**Elevator pitch:** Use when users must crop an uploaded image, such as an avatar, a banner or a thumbnail, in an HTML form. It shows a Cropper.js crop box in a form field, then crops and scales down a copy of the file on the server. To upload the image, see [UX Dropzone](ux-dropzone.md).
+**Elevator pitch:** Use when users must crop an uploaded image, such as an avatar, a banner or a thumbnail, in an HTML form. It shows a Cropper.js crop box in a form field, then crops and scales down a copy of the file on the server. To upload the image, see [Symfony UX Dropzone](ux-dropzone.md).
 
 **Details:** [../details/ux-cropperjs.md](../details/ux-cropperjs.md)
 

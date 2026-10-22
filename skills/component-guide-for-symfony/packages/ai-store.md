@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-An LLM knows only its training data, so it cannot answer questions about your own documents. Code that does this by hand must split texts, call an embeddings API, store the vectors and compute the similarity. The package does these steps. One interface covers an in-memory store and 24 backend packages, so your code stays the same when you change the database.
+An LLM knows only its training data, so it cannot answer questions about your own documents. Code that does this by hand must split texts, call an embeddings API, store the vectors and compute the similarity. The package does these steps. One interface covers an in-memory store and 24 backend packages, so most of your code stays the same when you change the database.
 
 ## When to use it
 

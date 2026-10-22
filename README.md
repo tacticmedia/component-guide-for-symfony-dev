@@ -96,12 +96,12 @@ The agent loads only the part that the current task needs.
 |---|---|---|
 | Each session | The descriptions of both skills | 230 |
 | Each session in a project that requires `symfony/*`, Claude Code plugin only | Hook line | 50 |
-| A task where a package can apply | `SKILL.md`: reading procedure, version rules, core rules, router | 7,100 |
-| Each candidate package | `packages/<name>.md`: why, when, and the hand-written code it replaces | 790 on average |
-| Each package that the agent uses | `details/<name>.md`: features, entry points, related packages, changes | 3,700 on average |
+| A task where a package can apply | `SKILL.md`: reading procedure, version rules, core rules, router | 7,200 |
+| Each candidate package | `packages/<name>.md`: why, when, and the hand-written code it replaces | 800 on average |
+| Each package that the agent uses | `details/<name>.md`: features, entry points, related packages, changes | 3,800 on average |
 | You start the audit | The `SKILL.md` of the audit | 2,100 |
 
-The whole catalogue is about 470,000 tokens. A typical task reads `SKILL.md`, two or three triage files and one details file.
+The whole catalogue is about 500,000 tokens. A typical task reads `SKILL.md`, two or three triage files and one details file.
 
 ## Versions
 

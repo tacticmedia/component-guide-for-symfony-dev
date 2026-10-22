@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-PHP file functions report a failure with a warning and a false return value. The package wraps them in methods that throw an exception with the failing path, create missing parent directories and work recursively. Its path helper works only on path strings for UNIX and Windows, and it does not access the disk.
+PHP file functions report a failure with a warning and a false return value. The package wraps them in methods that throw an exception with the failing path, create missing parent directories and work recursively. Its path helper works only on path strings, with the separator rules of the current operating system, and it does not access the disk.
 
 ## When to use it
 
@@ -20,11 +20,11 @@ PHP file functions report a failure with a warning and a false return value. The
 - Create a unique temporary file with a prefix and a file extension in a given directory.
 - Join path segments, or convert a path between the absolute and the relative form.
 - Make sure that a user-supplied path stays inside an allowed base directory.
-- Change files from a command-line tool or a plain PHP script, without the framework.
+- Change files from a command-line tool, a worker, a scheduled job or a plain PHP script, without the framework.
 
 ## Use it instead of
 
-- `file_put_contents($cacheFile, $phpCode)` for a file that other requests read at the same time -> `$filesystem->dumpFile($cacheFile, $phpCode)`
+- `file_put_contents($cacheFile, $phpCode)` for a file that other processes read at the same time -> `$filesystem->dumpFile($cacheFile, $phpCode)`
 - `if (!is_dir($dir)) { mkdir($dir, 0777, true); }` -> `$filesystem->mkdir($dir)`
 - A `RecursiveIteratorIterator` loop with `unlink()` and `rmdir()`, or `exec('rm -rf '.$dir)` -> `$filesystem->remove($dir)`
 - A recursive loop with `mkdir()` and `copy()`, or `exec('cp -R ...')` -> `$filesystem->mirror($originDir, $targetDir)`

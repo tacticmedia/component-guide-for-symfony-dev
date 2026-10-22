@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony UX 3.5
 
-**Elevator pitch:** Use when a web application must ship as an iOS or Android app with Hotwire Native, which shows the web pages in a native shell. It detects requests from the app, serves the JSON path configuration that the app reads, and generates bridge components for the page and the app. The package is experimental. For browser notifications, see [UX Notify](ux-notify.md).
+**Elevator pitch:** Use when a web application must ship as an iOS or Android app with Hotwire Native, which shows the web pages in a native shell. It detects requests from the app, serves the JSON path configuration that the app reads, and generates bridge components for the page and the app. The package is experimental. For browser notifications, see [Symfony UX Notify](ux-notify.md).
 
 **Details:** [../details/ux-native.md](../details/ux-native.md)
 

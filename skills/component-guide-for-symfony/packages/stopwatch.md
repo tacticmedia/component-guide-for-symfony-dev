@@ -17,7 +17,7 @@ A subtraction of two microtime values gives one number for one block of code, an
 - Time each iteration of a loop with laps.
 - Group related events into named sections.
 - Time a part of a template.
-- Profile a console command and see its events on the timeline.
+- Profile a console command or a queue worker and see its events on the timeline.
 - Measure the steps of a plain PHP script without the framework.
 - Assert a maximum request duration in a functional test.
 - Test code that measures time without a real wait.

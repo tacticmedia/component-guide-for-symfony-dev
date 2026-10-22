@@ -49,7 +49,7 @@
 - `LdapUser::eraseCredentials()` -> removed in 8.0. `LdapUser::__serialize()` removes the password from the serialized user. Do not set `security.erase_credentials`, which 8.1 deprecates.
 - The `sizeLimit` query option -> removed in 8.0 (it had no effect). A `query()` call with this option now throws `UndefinedOptionsException`. Use `maxItems` to limit the number of entries.
 - A custom `LdapInterface` or `ConnectionInterface` class -> since 8.0, it must also implement `saslBind()` and `whoami()`.
-- XML (`<form-login-ldap .../>`) and fluent PHP config (`->formLoginLdap()->dnString(...)`) -> removed in 8.0. Use YAML, or PHP with `App::config(['security' => [...]])` arrays.
+- XML (`<form-login-ldap .../>`) and the `Symfony\Config\*` config builders (`->formLoginLdap()->dnString(...)`) -> removed in 8.0. Use YAML, or PHP with `App::config(['security' => [...]])` arrays.
 - `form_login` and `form_login_ldap` (or another pair) on one firewall -> possible since 8.0.15 and 8.1.2. For a `form_login` or `json_login` pair, give the two authenticators different `check_path` values. For a `form_login` or `http_basic` pair, also set the firewall `entry_point`.
 - Since 8.0.8, `Ldap::reset()` resets the adapter and drops the connection. Bind again after a reset. Do not bind only once in a constructor.
 

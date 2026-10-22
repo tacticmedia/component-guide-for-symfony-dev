@@ -17,7 +17,7 @@ Packagist marks six Symfony UX packages as abandoned and suggests no replacement
 - Replace the UX LazyImage controller with the native lazy-loading attribute of HTML images.
 - Keep BlurHash placeholders after you remove UX LazyImage.
 - Keep the show and hide button of password fields after you remove UX TogglePassword.
-- Replace the abandoned Mercure bridge package with the Mercure support in [UX Turbo](ux-turbo.md).
+- Replace the abandoned Mercure bridge package with the Mercure support in [Symfony UX Turbo](ux-turbo.md).
 - Decide what to do with the Svelte components of Twig templates before you upgrade to Symfony UX 3.
 - Check if a Symfony UX package is abandoned or unreleased before you add it with Composer.
 

@@ -18,6 +18,7 @@ An application must know which user sends a request, and it must allow or deny e
 - Limit the failed login attempts for each user name and IP address.
 - Allow or deny access to URLs, controllers and single objects, with roles or custom permission rules.
 - Get the logged-in user in a controller, in other PHP code or in a template.
+- Check the permissions of a given user in a CLI command, a queue worker or a scheduled job.
 - Let an administrator act as another user, for example for support.
 - Reject disabled, locked or expired user accounts during authentication.
 

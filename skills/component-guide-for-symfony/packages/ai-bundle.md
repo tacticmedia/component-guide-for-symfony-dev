@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-The AI libraries are plain PHP classes, and an application must otherwise create and connect their objects by hand. The package reads one configuration and creates the provider clients, agents, tools, vector stores and chat stores. It also adds console commands, role checks for tools, a debug panel for each model call and test assertions.
+The AI libraries are plain PHP classes, and an application must otherwise create and connect their objects by hand. The package reads one configuration and creates the provider clients, agents, tools, vector stores and chat history stores. It also adds console commands, role checks for tools, a debug panel for each model call and test assertions. The configured objects work in web requests, CLI commands, queue workers and scheduled jobs.
 
 ## When to use it
 

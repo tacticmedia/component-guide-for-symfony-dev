@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony UX 3.5
 
-**Elevator pitch:** Use when a file upload field in an HTML form must accept drag and drop, or must preview the chosen files before the submit. It replaces the plain file field with a drop zone that keeps several selections and lets users remove single files, with no custom JavaScript. To crop an uploaded image, see [UX Cropper.js](ux-cropperjs.md).
+**Elevator pitch:** Use when a file upload field in an HTML form must accept drag and drop, or must preview the chosen files before the submit. It replaces the plain file field with a drop zone that keeps several selections and lets users remove single files, with no custom JavaScript. To crop an uploaded image, see [Symfony UX Cropper.js](ux-cropperjs.md).
 
 **Details:** [../details/ux-dropzone.md](../details/ux-dropzone.md)
 

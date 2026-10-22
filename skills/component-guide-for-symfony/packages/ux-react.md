@@ -17,7 +17,7 @@ A React component in a server-rendered page needs JavaScript that finds its root
 - Give a React component its initial data from PHP code through the Twig template.
 - Register all React components of one directory with Vite, Rsbuild, webpack or an import map.
 - Use JSX components without a bundler, after a Babel step compiles them to JavaScript. See [AssetMapper](asset-mapper.md).
-- Keep a React component mounted when other code moves its root element in the DOM, for example [UX Turbo](ux-turbo.md).
+- Keep a React component mounted when other code moves its root element in the DOM, for example [Symfony UX Turbo](ux-turbo.md).
 - Run JavaScript code when a React component mounts or unmounts.
 
 ## Use it instead of

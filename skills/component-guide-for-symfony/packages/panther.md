@@ -12,7 +12,7 @@ Clients that parse HTML in PHP do not run JavaScript, so they cannot test or scr
 
 ## When to use it
 
-- Test a page that JavaScript changes, for example a page with [UX Turbo](ux-turbo.md), [UX Live Component](ux-live-component.md) or [StimulusBundle](stimulus-bundle.md).
+- Test a page that JavaScript changes, for example a page with [Symfony UX Turbo](ux-turbo.md), [UX Live Component](ux-live-component.md) or [StimulusBundle](stimulus-bundle.md).
 - Wait in a test until JavaScript adds, removes, shows, hides or changes an element.
 - Take a screenshot of a page, or keep a screenshot of each failed browser test.
 - Read the browser console logs of a page in a test.

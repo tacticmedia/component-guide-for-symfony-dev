@@ -8,11 +8,12 @@
 
 ## Why it exists
 
-A plain HTTP client sends single requests. Code must then copy cookies, follow redirects, find link URLs and collect form values by hand. The package adds this browser behavior, and it also keeps a history. It sends real HTTP requests, or it sends each request into the application in the same PHP process for a test.
+A plain HTTP client sends single requests. Code must then copy the cookies of each response and each redirect, find link URLs and collect form values by hand. The package adds this browser behavior, and it also keeps a history. It sends real HTTP requests, or it sends each request into the application in the same PHP process for a test.
 
 ## When to use it
 
 - Scrape a website that requires a login form and a session cookie.
+- Crawl pages of a website that has no API, in a CLI tool, a scheduled job or an AI agent.
 - Submit an HTML form and keep its default and hidden field values.
 - Simulate a user who clicks links and submits forms in a functional test.
 - Keep the cookies of a website between HTTP requests.

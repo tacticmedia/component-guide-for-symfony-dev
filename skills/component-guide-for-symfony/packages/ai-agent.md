@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-An LLM cannot run your PHP code. It can only ask for a tool call. Without the package, code must send the messages, run the requested tools, send back the results and repeat until the model answers. The package runs this loop on top of [AI Platform](ai-platform.md), and adds memory, multi-agent routing, tool events and processing of the input and the output.
+An LLM cannot run your PHP code. It can only ask for a tool call. Without the package, code must send the messages, run the requested tools, send back the results and repeat until the model answers. The package runs this loop on top of [AI Platform](ai-platform.md), and adds memory, multi-agent routing, tool events and processing of the input and the output. The same loop runs in a web request, a CLI tool, a queue worker or a chat bot.
 
 ## When to use it
 

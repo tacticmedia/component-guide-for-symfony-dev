@@ -2,7 +2,7 @@
 
 **Applies to:** WebpackEncoreBundle 2.4, Encore 7.2
 
-**Elevator pitch:** Use when a project already builds its JavaScript and CSS with Webpack Encore, and pages must load the built files. It renders the script and link tags of each entry, with hashed names and split chunks. Encore is in low-maintenance mode. For new projects, see [AssetMapper](asset-mapper.md), or [Reprise](reprise.md) for Vite or Rsbuild.
+**Elevator pitch:** Use when a project already builds its JavaScript and CSS with Webpack Encore, and pages must load the built files. It renders the script and link tags of each entry, with hashed names and split chunks. Encore is in low-maintenance mode. For new projects, see [AssetMapper](asset-mapper.md), or [Symfony Reprise](reprise.md) for Vite or Rsbuild.
 
 **Details:** [../details/webpack-encore-bundle.md](../details/webpack-encore-bundle.md)
 
@@ -15,7 +15,7 @@ Webpack Encore is an npm package that builds your JavaScript and CSS files into 
 - Render the script and link tags of a Webpack Encore entry in a Twig layout.
 - Load extra JavaScript or CSS on one page only, with a separate Encore entry.
 - Link to images, fonts or copied files with the versioned names from the build manifest.
-- Add defer, a CSP nonce, an integrity hash, a crossorigin value or the reload attribute of [UX Turbo](ux-turbo.md) to the Encore tags.
+- Add defer, a CSP nonce, an integrity hash, a crossorigin value or the reload attribute of [Symfony UX Turbo](ux-turbo.md) to the Encore tags.
 - Send HTTP preload headers for the JavaScript and CSS files of a page.
 - Render tags from several Webpack builds, or from an entry list file on a CDN.
 - Render the same entry again in a second email or PDF template during one request.

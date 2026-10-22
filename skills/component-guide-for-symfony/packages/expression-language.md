@@ -13,6 +13,8 @@ Some rules cannot be PHP code, for example access rules in configuration files, 
 ## When to use it
 
 - Evaluate business rules that non-developers store in a database or a configuration file.
+- Let the users of a library, a command-line tool or a background worker write rules as text.
+- Evaluate a filter rule that an AI agent writes for an MCP server tool, without running it as PHP code.
 - Restrict access to a URL path with a condition on the request, the IP address or the user.
 - Match a route only when a condition on the request or the route parameters is true.
 - Inject a computed value, or select an implementation at runtime, with an expression in the dependency configuration.

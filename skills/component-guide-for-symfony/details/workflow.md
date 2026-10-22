@@ -60,7 +60,7 @@
 - 8.0: `Marking::mark()` and `unmark()` take `$nbToken`, and `Transition::getFroms()` and `getTos()` take `$asArc`. Update subclasses that override these methods.
 - 8.0: The `WorkflowDumpCommand` class moved from FrameworkBundle to `Symfony\Component\Workflow\Command\WorkflowDumpCommand`. The `workflow:dump` command does not change.
 - 7.4/8.0: Weighted transitions (`Arc`, `weight`), `BackedEnum` support in `MethodMarkingStore` and places from glob patterns of constants or enum cases are new.
-- 8.0: The fluent PHP config format (`static function (FrameworkConfig $framework)`) is removed. Return `App::config([...])` arrays. The weighted transition PHP example in the docs uses the old format.
+- 8.0: The `Symfony\Config\*` config builder classes are removed, so `static function (FrameworkConfig $framework)` fails. Return `App::config([...])` arrays. The weighted transition PHP example in the docs uses the old format.
 
 ## Docs
 

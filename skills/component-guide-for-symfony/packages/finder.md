@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when PHP must find files or directories in a directory tree by name, path, content, size, date or depth. It also skips hidden files and the files that Git ignores, and sorts the results. To copy, write or delete files, see [Filesystem](filesystem.md). To find an executable program, see [Process](process.md).
+**Elevator pitch:** Use when PHP must find files or directories in a directory tree by name, path, content, size, date or depth. By default, it skips hidden files and version control directories. It can also skip the paths that .gitignore files exclude, and sort the results. To copy, write or delete files, see [Filesystem](filesystem.md). To find an executable program, see [Process](process.md).
 
 **Details:** [../details/finder.md](../details/finder.md)
 
@@ -15,12 +15,13 @@ A recursive file search with several criteria needs nested directory loops or SP
 - Find all files that match a name pattern, for example all PHP files or all templates, in a directory tree.
 - Find the files with a modification time after a date, or the files that are larger than a size limit.
 - Search the files of a directory for a string or a regular expression in their content.
-- List the files of a Git project, but skip the files that the Git ignore rules exclude.
+- List the files of a Git project, but skip the paths that its .gitignore files exclude.
 - List only the direct children of a directory, or only the entries in a depth range.
 - Sort the found files by name, natural order, extension, size, type or modification time.
 - Select the files that [Filesystem](filesystem.md) must delete or copy, for example all old temporary files.
 - Iterate over the files on FTP, Amazon S3 or another PHP stream wrapper.
-- Scan the files of a project from a command-line tool or a build script.
+- Scan the files of a project from a command-line tool, a build script or a scheduled job.
+- Give an MCP server or an AI agent a tool that lists or searches the files of a project.
 
 ## Use it instead of
 
@@ -32,5 +33,5 @@ A recursive file search with several criteria needs nested directory loops or SP
 - A hand-written `.gitignore` parser with `fnmatch()` -> `->ignoreVCSIgnored(true)`
 - `usort($files, fn ($a, $b) => filemtime($a) <=> filemtime($b))` -> `->sortByModifiedTime()`
 - `str_replace('\\', '/', $file->getRelativePathname())` on each result for Windows -> `->useUnixPaths()`
-- A `foreach` loop with `unlink()` over a `glob()` result -> `$filesystem->remove(Finder::create()->files()->in($dir)->name('*.tmp'))`
+- A `RecursiveDirectoryIterator` loop that calls `unlink()` for each `*.tmp` file -> `$filesystem->remove(Finder::create()->files()->in($dir)->name('*.tmp'))`
 - `count(glob($pattern)) > 0` -> `$finder->hasResults()`

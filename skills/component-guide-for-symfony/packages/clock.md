@@ -2,19 +2,19 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when code reads the current time or waits, and tests must freeze, set or move that time without a real wait. It gives a PSR-20 clock, a mock clock for tests, a monotonic clock and an immutable date class that follows the mock. To mock the PHP time functions directly, see [PHPUnit Bridge](phpunit-bridge.md).
+**Elevator pitch:** Use when code reads the current time or waits, and tests must freeze, set or move that time without a real wait. It gives a PSR-20 clock, a mock clock for tests, a monotonic clock and an immutable date class that follows the mocked time. To mock the PHP time functions directly, see [PHPUnit Bridge](phpunit-bridge.md).
 
 **Details:** [../details/clock.md](../details/clock.md)
 
 ## Why it exists
 
-Code that reads the system clock directly, or that sleeps, is hard to test. Tests of such code cannot control the time, and they wait in real time. The package puts the clock behind a PSR-20 interface. Tests replace it with a mock clock that they can freeze or move, and a sleep on the mock clock returns at once.
+Code that reads the system clock directly, or that sleeps, is hard to test. This applies to web applications, CLI tools, queue workers, scheduled jobs and libraries. Tests of such code cannot control the time, and they wait in real time. The package puts the clock behind a PSR-20 interface. Tests replace it with a mock clock that they can freeze or move, and a sleep on the mock clock returns at once.
 
 ## When to use it
 
 - Get the current date and time in application code in a way that tests can control.
 - Freeze, set or move the time in a PHPUnit test.
-- Pause the code for a number of seconds without a real wait in the tests, for example in a poll or retry loop.
+- Pause the code for some seconds, with no real wait in tests, for example in a poll or retry loop.
 - Measure elapsed time that changes to the system clock do not affect.
 - Calculate a relative date, for example 3 hours from now, that follows the mocked time.
 - Store dates of the immutable date class in database columns, with the column types of the [Doctrine Bridge](doctrine-bridge.md).

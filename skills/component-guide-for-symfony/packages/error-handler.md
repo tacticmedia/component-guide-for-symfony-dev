@@ -25,7 +25,7 @@ PHP reports warnings, notices and fatal errors outside of the exception flow, so
 
 ## Use it instead of
 
-- A temporary `set_error_handler()` that throws, or `@file_get_contents($path)` followed by `error_get_last()` -> `ErrorHandler::call(fn () => file_get_contents($path))`, which throws an `\ErrorException`.
+- A temporary `set_error_handler()` that throws, or `@unserialize($payload)` followed by `error_get_last()` -> `ErrorHandler::call(fn () => unserialize($payload))`, which throws an `\ErrorException`.
 - `ini_set('display_errors', '1'); error_reporting(E_ALL);` in `public/index.php` -> `Debug::enable()`, or `SymfonyRuntime` in debug mode.
 - `register_shutdown_function()` with `error_get_last()` to report fatal errors -> `ErrorHandler::register()`, which turns them into `FatalError` objects.
 - A `kernel.exception` listener or a `try`/`catch` block in each controller that builds an HTML error `Response` -> Twig templates in `templates/bundles/TwigBundle/Exception/` (`TwigErrorRenderer`).

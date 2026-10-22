@@ -34,4 +34,4 @@ Each package works alone, but an application needs one place that reads the conf
 - A controller method that only does `return new RedirectResponse('/new-page', 301);` -> a route with `controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController` and the defaults `path: /new-page` and `permanent: true` (`RedirectController`).
 - `rm -rf var/cache/*` in a deploy script -> `APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear`, which also warms up the cache (`cache:clear`).
 - `grep -rn "'/blog'" src/ config/` to find the controller of a URL -> `php bin/console router:match /blog` (`router:match`, `debug:router`).
-- `$ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];` behind a load balancer -> set `framework.trusted_proxies` and `framework.trusted_headers`, then call `$request->getClientIp()` (`framework.trusted_proxies`).
+- `$ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];` behind a load balancer -> set `framework.trusted_proxies` (IP ranges or `PRIVATE_SUBNETS`) and `framework.trusted_headers`, then call `$request->getClientIp()` (`framework.trusted_proxies`).

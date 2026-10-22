@@ -8,13 +8,13 @@
 
 ## Why it exists
 
-Many applications show country, language, currency or time zone names in the language of the user, and check ISO codes. Hand-written lists get no updates, and the intl extension on each server can use a different ICU version. The package contains the ICU data as PHP files and supplies static classes that read this data.
+Many applications show country, language, currency or time zone names in the language of the user, and check ISO codes. Web pages, APIs, command-line tools, background workers and libraries all have this need. Hand-written lists get no updates, and the intl extension on each server can use a different ICU version. The package contains the ICU data as PHP files and supplies static classes that read this data.
 
 ## When to use it
 
 - Show a list of countries, languages, locales, currencies or time zones in the language of the user.
 - Show the name of one country, language, script, locale, currency or time zone in a given language.
-- Check that a country, language, script, locale, currency or time zone code exists.
+- Check that a country, language, script, locale, currency or time zone code exists, for example in an API request, an import job or a command-line tool.
 - Convert country codes between alpha-2, alpha-3 and numeric forms, or language codes between alpha-2 and alpha-3.
 - Get the symbol, the decimal places and the cash rounding of a currency.
 - Find the currencies that are legal tender in a country on a given date.
@@ -24,7 +24,7 @@ Many applications show country, language, currency or time zone names in the lan
 ## Use it instead of
 
 - `['FR' => 'France', 'DE' => 'Germany', ...]` in a PHP or JSON file -> `Countries::getNames($locale)`, or the `CountryType` form field
-- `\Locale::getDisplayRegion('-GB', 'de')`, which uses the ICU data of the server (74.2 on the test machine) -> `Countries::getName('GB', 'de')`, which uses the bundled ICU 78.3 data
+- `\Locale::getDisplayRegion('-GB', 'de')`, which uses the ICU data of the server -> `Countries::getName('GB', 'de')`, which uses the bundled ICU 78.3 data
 - `preg_match('/^[A-Z]{2}$/', $code)` or `in_array($code, $countryCodes)` -> `Countries::exists($code)`, or the `#[Assert\Country]` constraint on a property
 - `['FR' => 'FRA', ...]` or `['FR' => '250', ...]` arrays -> `Countries::getAlpha3Code('FR')`, `Countries::getNumericCode('FR')`, `Countries::getAlpha2FromNumeric('250')`
 - `['EUR' => '€', 'USD' => '$']` -> `Currencies::getSymbol('USD', $locale)`

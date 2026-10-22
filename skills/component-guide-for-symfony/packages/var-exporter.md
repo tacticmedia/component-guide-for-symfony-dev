@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-The PHP clone keyword copies only the outer object, and a serialize and unserialize cycle allocates the strings and arrays again. The PHP export function ignores the serialization methods of a class. Loading serialized data is also slower than PHP code that OPcache keeps in memory. The package copies, exports and rebuilds object graphs with their private state, references and serialization behavior.
+The PHP clone keyword copies only the outer object, and a serialize and unserialize cycle allocates the strings and arrays again. The PHP export function ignores the serialization methods of a class. Loading serialized data is also slower than PHP code that OPcache keeps in memory. The package copies, exports and rebuilds object graphs with their private state, references and serialization behavior. This applies to libraries, code generators, caches, queue workers and long-running processes.
 
 ## When to use it
 

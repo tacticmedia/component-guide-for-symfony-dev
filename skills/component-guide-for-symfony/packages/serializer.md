@@ -2,13 +2,13 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when PHP objects must become JSON, XML, CSV or YAML, or when an incoming payload must become typed objects. It converts in both directions, selects and renames fields, and reports type errors. To stream very large JSON, see [JsonStreamer](json-streamer.md). To copy data from one object to another, see [ObjectMapper](object-mapper.md).
+**Elevator pitch:** Use when PHP objects must become JSON, XML, CSV or YAML, or when an incoming payload must become typed objects. It converts in both directions, selects and renames fields, and reports type errors. To stream large JSON documents, see [JsonStreamer](json-streamer.md). To copy data from one object to another, see [ObjectMapper](object-mapper.md).
 
 **Details:** [../details/serializer.md](../details/serializer.md)
 
 ## Why it exists
 
-APIs, integrations and import scripts must convert PHP objects to JSON, XML, CSV or YAML, and convert incoming data back to typed objects. Hand-written conversion code for each class is long and hard to keep correct. The package first converts objects to and from plain arrays, and then converts the arrays to and from the text format. It reads and writes any object through reflection, so you do not write conversion code for each class.
+Web APIs, API clients, queue workers, CLI import and export commands, MCP servers and AI agents exchange structured data. They must convert PHP objects to JSON, XML, CSV or YAML, and convert incoming data back to typed objects. Hand-written conversion code for each class is long and hard to keep correct. The package first converts objects to and from plain arrays, and then converts the arrays to and from the text format. It reads and writes any object through reflection, so you do not write conversion code for each class.
 
 ## When to use it
 
@@ -16,7 +16,8 @@ APIs, integrations and import scripts must convert PHP objects to JSON, XML, CSV
 - Map a JSON, XML or form request body to a typed data object in a controller.
 - Show different properties of the same class to different API clients.
 - Rename fields in the output, for example from camelCase to snake_case.
-- Import or export CSV, XML or YAML data as PHP objects.
+- Import or export CSV, XML or YAML data as PHP objects, for example in a CLI command or a scheduled job.
+- Turn the JSON output of an AI model or a tool call into a typed object.
 - Report all type errors and unknown fields of an invalid payload in one response.
 - Create the correct subclass of an interface or an abstract class from a type field.
 - Return validation errors and exceptions as RFC 7807 problem JSON.

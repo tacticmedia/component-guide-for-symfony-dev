@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-A class that takes an options array needs default values, required keys and type checks. A plain array merge adds the defaults, but it accepts a misspelled key without an error. With the package, you define each option in one place. It then validates the given array and returns the complete array.
+A class that takes an options array needs default values, required keys and type checks. This applies to libraries, API clients, CLI tools, queue workers, form fields and UI components. A plain array merge adds the defaults, but it accepts a misspelled key without an error. With the package, you define each option in one place. It then validates the given array and returns the complete array.
 
 ## When to use it
 
@@ -26,10 +26,10 @@ A class that takes an options array needs default values, required keys and type
 
 - `$this->options = array_replace(['port' => 25], $options);` or `$options['port'] ?? 25` -> `setDefaults()` and `resolve()` (`OptionsResolver::resolve()`).
 - `if (array_diff_key($options, $defaults)) { throw new \InvalidArgumentException('Unknown option'); }` -> the `UndefinedOptionsException` of `resolve()`, which lists the defined options.
-- `if (!isset($options['host'])) { throw new \InvalidArgumentException('The "host" option is required.'); }` -> `setRequired('host')`.
+- `if (!isset($options['host'])) { throw new \InvalidArgumentException('The "host" option is required.'); }` -> `setRequired('host')` and `setAllowedTypes('host', 'string')`, because a required option accepts `null`.
 - `if (!\is_int($options['port'])) { throw ...; }` or `\in_array($options['transport'], ['smtp', 'mail'], true)` -> `setAllowedTypes('port', 'int')` and `setAllowedValues('transport', ['smtp', 'mail'])`.
 - `$options['host'] = 'https://'.$options['host'];` after the merge -> `setNormalizer('host', fn (Options $options, string $value): string => ...)`.
 - `$options['port'] ??= 'ssl' === $options['encryption'] ? 465 : 25;` -> a lazy default: `setDefault('port', fn (Options $options): int => 'ssl' === $options['encryption'] ? 465 : 25)`.
 - `foreach ($options['connections'] as $name => $connection) { $options['connections'][$name] += ['user' => 'root']; }` -> `setOptions('connections', ...)` with `setPrototype(true)` and `setDefaults(['user' => 'root'])`.
 - `trigger_error('The "hostname" option is deprecated.', \E_USER_DEPRECATED)` -> `setDeprecated('hostname', 'acme/package', '1.2')`.
-- A form type copy that changes one field -> a custom option in `configureOptions()`, given in the third argument of `createForm()`.
+- A copy of a form type class that changes one field in `buildForm()` -> a custom option in `configureOptions()`, given in the third argument of `createForm()`.

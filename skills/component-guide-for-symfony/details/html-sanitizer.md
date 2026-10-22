@@ -50,7 +50,7 @@
 - 8.0: `new HtmlSanitizer($config, new MastermindsParser())` -> `new HtmlSanitizer($config)`. The default `NativeParser` uses the HTML5 parser of PHP 8.4.
 - 8.0: a custom `ParserInterface::parse(string $html)` -> add the argument `string $context = 'body'`. Since 7.4, the method can also return a `\Dom\Node`.
 - 8.0 (also 6.4.28 and 7.3.6): `allowElement('iframe', '*')` no longer keeps `srcdoc` -> add `allowAttribute('srcdoc', 'iframe')` and `forceAttribute('iframe', 'sandbox', '')`.
-- 8.0: fluent config builder calls such as `$framework->htmlSanitizer()->sanitizer('app.post_sanitizer')` -> YAML, or a PHP array in `App::config([...])`. The "Default Action" section of the docs shows the fluent form.
+- 8.0: calls of the removed `Symfony\Config\*` config builder classes, such as `$framework->htmlSanitizer()->sanitizer('app.post_sanitizer')` -> YAML, or a PHP array in `App::config([...])`. The "Default Action" section of the docs shows these calls.
 - 8.0.13, 8.1.0, 6.4.41 and 7.4.13: a custom attribute sanitizer for URLs in `action`, `poster`, `data`, `longdesc` or meta refresh -> the built-in URL check. It now covers these attributes.
 
 ## Status

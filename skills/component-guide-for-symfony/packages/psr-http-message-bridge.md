@@ -2,22 +2,22 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when your application must exchange HTTP requests and responses with a library that accepts or returns only PSR-7 objects. It converts both directions with PSR-17 factories, and controllers can take a PSR-7 request or return a PSR-7 response. For a PSR-18 HTTP client, see [HttpClient](http-client.md).
+**Elevator pitch:** Use when your application must exchange HTTP requests and responses with a library that accepts or returns only PSR-7 objects. It converts the messages in both directions and creates the PSR-7 objects with PSR-17 factories. Controllers can take a PSR-7 request or return a PSR-7 response. For a PSR-18 HTTP client, see [HttpClient](http-client.md).
 
 **Details:** [../details/psr-http-message-bridge.md](../details/psr-http-message-bridge.md)
 
 ## Why it exists
 
-The [HttpFoundation](http-foundation.md) package models HTTP messages with its own request and response classes, and PSR-7 defines a different set of HTTP message interfaces. Code for one model cannot use the objects of the other model. Hand-written conversion code must copy the query, the cookies, the uploaded files and the parsed body one by one. The bridge converts the objects in both directions, and it connects PSR-7 objects to controllers.
+The [HttpFoundation](http-foundation.md) package models HTTP messages with its own request and response classes, and PSR-7 defines a different set of HTTP message interfaces. PSR-15 middleware, MCP SDKs and long-running PHP servers such as ReactPHP use only PSR-7 objects. Code for one model cannot use the objects of the other model. Hand-written conversion code must copy the query, the cookies, the uploaded files and the parsed body one by one. The bridge converts the objects in both directions, and it connects PSR-7 objects to controllers.
 
 ## When to use it
 
-- Give the current HTTP request to a library that accepts only a PSR-7 server request.
+- Give the current HTTP request to a library that accepts only a PSR-7 server request, such as an MCP SDK.
 - Send the PSR-7 response of a library to the client as a normal application response.
 - Get a PSR-7 server request as a controller argument.
 - Return a PSR-7 response from a controller.
-- Convert a PSR-7 server request into an [HttpFoundation](http-foundation.md) request for code that expects it.
-- Convert a streamed response or a file download response into a PSR-7 response.
+- Convert a PSR-7 server request into an [HttpFoundation](http-foundation.md) request, for example in a long-running PHP server.
+- Convert an application response, a streamed response or a file download into a PSR-7 response.
 
 ## Use it instead of
 

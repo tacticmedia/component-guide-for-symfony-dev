@@ -47,7 +47,7 @@
 ## Changed in 8.0/8.1
 
 - 8.1.7 fixes the `framework.remote_event` node. Before 8.1.7, FrameworkBundle rejected any value for this node with an "Unrecognized option" error. Write `framework.remote_event.enabled`. The configuration reference page shows `remote-event`, and FrameworkBundle accepts that spelling as `remote_event`.
-- 8.0 removes the fluent PHP configuration format. Thus, the `static function (FrameworkConfig $config)` examples on the Webhook page fail. Write YAML, or a PHP file in the namespace `Symfony\Component\DependencyInjection\Loader\Configurator` that returns `App::config(['framework' => ['messenger' => ['routing' => [ConsumeRemoteEventMessage::class => 'async']]]])`.
+- 8.0 removes the `Symfony\Config\*` config builder classes. Thus, the `static function (FrameworkConfig $config)` examples on the Webhook page fail. Write YAML, or a PHP file in the namespace `Symfony\Component\DependencyInjection\Loader\Configurator` that returns `App::config(['framework' => ['messenger' => ['routing' => [ConsumeRemoteEventMessage::class => 'async']]]])`.
 - 8.0 removes the `webhook.xml` route file. Import `@FrameworkBundle/Resources/config/routing/webhook.php`.
 - 7.4/8.0: the LOX24 parser returns an `SmsEvent` for delivery reports and a plain `RemoteEvent` for other LOX24 event types. If you consume LOX24 events, handle both classes.
 

@@ -17,7 +17,7 @@ Server-Sent Events keep an HTTP connection open for each client, and each open c
 - Build a chat or another page that many users change at the same time.
 - Send a private update that only subscribers with a matching JWT receive.
 - Let API clients find the hub URL in a Link response header.
-- Update the open pages with new HTML when a database record changes, with [UX Turbo](ux-turbo.md).
+- Update the open pages with new HTML when a database record changes, with [Symfony UX Turbo](ux-turbo.md).
 - Send updates to many concurrent Server-Sent Events clients, when one open PHP connection for each client uses too many server resources.
 - Publish updates from a background worker or a command-line command.
 

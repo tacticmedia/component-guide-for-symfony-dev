@@ -18,7 +18,7 @@ An application must not store plain passwords. Hand-written MD5 hashes and direc
 - Use a stronger hasher for administrators, or a separate hasher for recovery codes and API tokens.
 - Hash the password field of a form without code in the controller.
 - Create a password hash on the command line for a user list in the configuration or for a database row.
-- Hash and verify passwords in a PHP application without the Symfony framework.
+- Hash and verify passwords without the Symfony framework, for example in a CLI tool, a worker or a library.
 - Make the hashers fast in the test environment.
 
 ## Use it instead of

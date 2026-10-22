@@ -35,7 +35,7 @@ Then apply these rules:
 - Symfony 8.0: skip the items marked 8.1. If a feature has no version mark, find it in the installed source before you use it.
 - Symfony 7.4: treat each "Removed in 8.0" item as a deprecation to avoid. Do not use features that are new in 8.x.
 - A later minor version: apply the files. If the code fails or the installed source disagrees, the installed source is correct.
-- Symfony AI 0.x: minor versions break the API. If the installed minor version differs, read the "Changed in" section and `UPGRADE.md` of the installed package.
+- Symfony AI 0.x: minor versions break the API. If the installed minor version differs, read the "Changed in" section and the `CHANGELOG.md` of the installed package. `UPGRADE.md` is only in the symfony/ai repository.
 - Before you say that a class, method or option does not exist, read the installed source in `vendor/symfony/<package>/`.
 - Do not ask the user to upgrade, and do not describe the features of a newer version, unless the user asks. When you skip a newer feature because of the installed version, do not mention the feature or the version.
 
@@ -44,7 +44,7 @@ Then apply these rules:
 Find the type before you apply a configuration example.
 
 - FrameworkBundle application: `config/bundles.php` registers `Symfony\Bundle\FrameworkBundle\FrameworkBundle`. The `framework.*` configuration keys apply.
-- Application without HTTP (8.1): the kernel uses `Symfony\Component\DependencyInjection\Kernel\AbstractKernel` with `KernelTrait`, and `ServicesBundle` or `ConsoleBundle`. There is no `framework.*` configuration. Use the "Without FrameworkBundle" entry points.
+- Application without HTTP (8.1): the kernel uses `Symfony\Component\DependencyInjection\Kernel\AbstractKernel` with `KernelTrait`, and `ServicesBundle` or `ConsoleBundle`. Install `symfony/config` and `symfony/filesystem` too, because DependencyInjection does not require them. There is no `framework.*` configuration. Use the "Without FrameworkBundle" entry points.
 - Standalone use: no Symfony kernel, for example a library, a plain PHP script or another framework. Create the objects in code with the "Without FrameworkBundle" entry points. Follow the conventions of the host framework.
 
 ## Precedence
@@ -64,13 +64,13 @@ Apply these rules to all new and changed code. The details files repeat them whe
 ### Symfony 8.0 and later
 
 - Symfony 8.1 needs PHP 8.4.1 or later.
-- Configuration: YAML, or a PHP file that returns `App::config([...])` (routes: `Routes::config([...])`) in the namespace `Symfony\Component\DependencyInjection\Loader\Configurator`. 8.0 removed the XML format and the fluent configuration classes `Symfony\Config\*`.
+- Configuration: YAML, or a PHP file that returns `App::config([...])` in the namespace `Symfony\Component\DependencyInjection\Loader\Configurator`. A PHP route file returns `Routes::config([...])` in the namespace `Symfony\Component\Routing\Loader\Configurator`. 8.0 removed the XML format and the `Symfony\Config\*` config builder classes.
 - Autowiring: to select a named autowiring alias, add `#[Target('name')]` to the argument. 8.1 deprecates a match on the argument name alone.
 - Tagged services: `#[AutowireIterator('tag')]` and `#[AutowireLocator('tag')]`. 8.0 removed `#[TaggedIterator]` and `#[TaggedLocator]`.
 - Attributes: `Symfony\Component\Routing\Attribute\Route` and `Symfony\Component\Serializer\Attribute\*`. 8.0 removed the `Annotation` namespaces.
 - Validation constraints take named arguments: `new Assert\Length(min: 3)`. 8.0 removed the options array.
 - Requests: `$request->attributes->get()`, `$request->query->get()` or `$request->request->get()`. 8.0 removed `Request::get()`.
-- Doctrine entities from route values: `{slug:post}` in the route path or `#[MapEntity]`. 8.0 removed the automatic mapping of route parameters other than `{id}`.
+- Doctrine entities from route values: `{slug:post}` in the route path or `#[MapEntity]`. 8.0 removed the automatic mapping of route parameters to entity properties. A route parameter with the name of the argument, or `{id}`, gives the primary key.
 - Console commands: a class with `#[AsCommand]` and `__invoke()`, with typed `#[Argument]` and `#[Option]` parameters. Register them with `Application::addCommand()`. 8.0 removed `Application::add()`.
 - User classes: no `eraseCredentials()`. 8.0 removed it from `UserInterface`. Add a `__serialize()` method that stores a `crc32c` hash of the password hash. `make:user` generates it.
 - URLs outside a request, such as in commands and workers: `framework.router.default_uri`. 8.1 deprecates `router.request_context.host` and `router.request_context.scheme`.
@@ -232,7 +232,7 @@ The first sentence of each pitch. Read the linked triage file for the full pitch
 - [AI Platform](packages/ai-platform.md) (`symfony/ai-platform`): Use when PHP code must call an LLM API such as OpenAI, Anthropic, Gemini or Ollama for text, streams, structured data, embeddings or speech.
 - [AI Agent](packages/ai-agent.md) (`symfony/ai-agent`): Use when an LLM must call functions of your PHP code as tools and use the results in its answer.
 - [AI Store](packages/ai-store.md) (`symfony/ai-store`): Use when an LLM must answer from your own documents with RAG, or when code must find similar text in a vector database.
-- [AI Chat](packages/ai-chat.md) (`symfony/ai-chat`): Use when an AI chatbot must remember the earlier messages of a conversation between HTTP requests.
+- [AI Chat](packages/ai-chat.md) (`symfony/ai-chat`): Use when an AI chatbot must remember the earlier messages of a conversation between HTTP requests, worker jobs or runs of a CLI tool.
 - [AI Mate](packages/ai-mate.md) (`symfony/ai-mate`): Use when a coding agent such as Claude Code or Codex must read the logs, request records or environment files of a PHP project.
 - [MCP Bundle](packages/mcp-bundle.md) (`symfony/mcp-bundle`): Use when AI clients such as Claude Desktop or Cursor must use the tools, prompts and data of your PHP application over MCP.
 

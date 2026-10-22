@@ -63,7 +63,7 @@
 
 ## Status
 
-- Reprise 1.x is stable (1.0.0, 2026-08-26). The Symfony docs call it experimental. The Reprise CHANGELOG calls 1.0.0 a "Stable release", and the Reprise docs say that the bundle aims to follow the Symfony Backward Compatibility promise. The README, the bundle docs and the source contain no "experimental" marker.
+- Reprise 1.x is stable (1.0.0, 2026-08-26); symfony-docs 8.1 still calls it experimental. The Reprise CHANGELOG calls 1.0.0 a "Stable release", and the Reprise docs say that the bundle aims to follow the Symfony Backward Compatibility promise. The README, the bundle docs and the source contain no "experimental" marker.
 - The symfony-docs page `frontend.rst` shows the warning "Symfony Reprise is **experimental**" and the table rows "Production Ready? no" and "Stable? no". The StimulusBundle docs also say "(experimental)". Both texts are out of date.
 - Requirements: PHP 8.4 or higher, Symfony 7.4 or 8.x, and Node.js `^22.18.0 || ^24.11.0 || >=26.0`. The bundler is Vite 7 or 8, or Rsbuild 1.7 or 2. If the application runs PHP 8.2 or 8.3, Composer cannot install Reprise.
 

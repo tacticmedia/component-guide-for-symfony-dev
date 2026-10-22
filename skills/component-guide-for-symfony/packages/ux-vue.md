@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony UX 3.5
 
-**Elevator pitch:** Use when server-rendered HTML pages must show Vue 3 components with initial props from PHP. It writes the component name and the props into the HTML, and its JavaScript mounts one Vue app on each element. It works with Vite, Rsbuild, webpack or [AssetMapper](asset-mapper.md). For React, see [UX React](ux-react.md). For interactive UI in PHP and Twig only, see [UX Live Component](ux-live-component.md).
+**Elevator pitch:** Use when server-rendered HTML pages must show Vue 3 components with initial props from PHP. It writes the component name and the props into the HTML, and its JavaScript mounts one Vue app on each element. It works with Vite, Rsbuild, webpack or [AssetMapper](asset-mapper.md). For React, see [Symfony UX React](ux-react.md). For interactive UI in PHP and Twig only, see [UX Live Component](ux-live-component.md).
 
 **Details:** [../details/ux-vue.md](../details/ux-vue.md)
 

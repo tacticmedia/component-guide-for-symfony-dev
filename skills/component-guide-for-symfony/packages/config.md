@@ -19,7 +19,7 @@ A reusable package gets its configuration as a list of arrays, one for each conf
 - Show the default or the current configuration of a package in the terminal.
 - Find a file in a list of directories and load it with the loader that supports its format.
 - Cache generated PHP code and generate it again only when a source file changes.
-- Validate and merge parsed YAML or PHP configuration files in a plain PHP tool, without the framework.
+- Validate and merge parsed YAML or PHP configuration files in a CLI tool or a worker, without the framework.
 - Give IDEs and static analysis tools the array shapes of the PHP configuration files.
 
 ## Use it instead of

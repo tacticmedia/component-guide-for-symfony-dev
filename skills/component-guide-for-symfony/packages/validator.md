@@ -21,6 +21,7 @@ Applications must reject data that breaks rules, for example an empty name, an i
 - Write a reusable rule for a business check that no built-in rule covers.
 - Add rules to a third-party class that you cannot change.
 - Validate a queue message before a background worker handles it.
+- Validate the arguments of a tool call in an AI agent or an MCP server before the tool runs.
 - Validate the input and the answers of an interactive command-line tool.
 
 ## Use it instead of

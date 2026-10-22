@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-With the built-in PHP functions such as exec and proc_open, you must escape the arguments, read the pipes and check the timeouts yourself. The behavior of these functions also differs between Unix and Windows. The package escapes each argument for the operating system, collects or streams the output, and stops the command at a timeout.
+Web applications, CLI tools, queue workers, scheduled jobs, MCP servers and AI agents often start other programs, for example git, ffmpeg or a PDF converter. With the built-in PHP functions such as exec and proc_open, you must escape the arguments, read the pipes and check the timeouts yourself. The behavior of these functions also differs between Unix and Windows. The package escapes each argument for the operating system, collects or streams the output, and stops the command at a timeout.
 
 ## When to use it
 
@@ -17,6 +17,7 @@ With the built-in PHP functions such as exec and proc_open, you must escape the 
 - Stop a command that runs too long or that writes no output for some time.
 - Send data to the standard input of a command while the command runs.
 - Start a command in the background and get its result later.
+- Start a command that keeps running after the PHP script ends.
 - Run a PHP script or a console command of the application in a new PHP process with the same PHP settings.
 - Run a shell command in a queue worker instead of in the web request, with [Messenger](messenger.md).
 - Check that a binary such as ffprobe is installed, and get its path.

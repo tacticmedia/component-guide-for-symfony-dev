@@ -2,13 +2,13 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when PHP code must parse HTML or XML, for example to scrape a page or to check a response in a test. It selects nodes with CSS selectors or XPath, and reads text, attributes, links and forms. For JSON, see [JsonPath](json-path.md).
+**Elevator pitch:** Use when PHP code must parse HTML or XML, for example to scrape a page or to check a response in a test. It selects nodes with CSS selectors or XPath, and reads text, attributes, links and forms. For JSON, see [JsonPath](json-path.md). For a page that needs JavaScript, see [Panther](panther.md).
 
 **Details:** [../details/dom-crawler.md](../details/dom-crawler.md)
 
 ## Why it exists
 
-Code that uses the PHP DOM classes directly must load the document, write XPath queries, make relative URLs absolute and collect form values. The package does these tasks with chainable methods, and it parses HTML with the HTML5 parser of PHP 8.4. Test clients and browser clients return the parsed page for each response, and the test assertions check it.
+Code that uses the PHP DOM classes directly must load the document, write XPath queries, make relative URLs absolute and collect form values. The package does these tasks with chainable methods, and it parses HTML with the HTML5 parser of PHP 8.4. Scrapers, feed readers, CLI tools, scheduled jobs, AI agents and MCP servers use it to read HTML pages and XML documents. Test clients and browser clients return the parsed page for each response, and the test assertions check it.
 
 ## When to use it
 

@@ -31,6 +31,6 @@ Each LLM provider has its own HTTP API, request format, stream format and error 
 - A hard-coded array of model names and model features -> the model catalog of the bridge, or `ModelsDev\ModelCatalog` with `symfony/models-dev`.
 - A `while` loop with `sleep()` that polls the status URL of a provider job -> `asJob()` and `JobRunner::wait()`.
 - `if (429 === $response->getStatusCode()) { sleep((int) $response->getHeaders(false)['retry-after'][0]); }` -> catch `RateLimitExceededException` and read `getRetryAfter()`. It can return `null`, because some bridges do not read the `Retry-After` header and others read only a value in seconds.
-- A cache lookup with `md5($prompt)` around each model call -> `CachePlatform` with the `prompt_cache_key` option.
+- A cache lookup with `md5($prompt)` around each model call -> `CachePlatform` with a tag-aware pool and the `prompt_cache_key` option.
 - Hand-written `'cache_control' => ['type' => 'ephemeral']` blocks in an Anthropic request -> the automatic prompt cache markers of the Anthropic bridge (`cacheRetention` argument of `Factory::createPlatform()`: `short`, `long` or `none`). The AI Bundle key is `ai.platform.anthropic.cache_retention`.
 - A `MockHttpClient` with fake provider JSON in tests -> `InMemoryPlatform` or `MockPlatformFactory`.

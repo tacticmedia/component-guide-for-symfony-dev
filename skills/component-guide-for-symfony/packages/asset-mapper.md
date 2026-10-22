@@ -2,13 +2,13 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when an application must load JavaScript, CSS and npm packages in the browser without Node.js or a build step. It serves the files through a native browser importmap, with content-hashed URLs. If you need a bundler, see [Reprise](reprise.md) for Vite or Rsbuild, or [Webpack Encore](webpack-encore-bundle.md) in an existing Encore project.
+**Elevator pitch:** Use when an application must load JavaScript, CSS and npm packages in the browser without Node.js or a build step. It serves the files through a native browser importmap, with content-hashed URLs. If you need a bundler, see [Symfony Reprise](reprise.md) for Vite or Rsbuild, or [WebpackEncoreBundle](webpack-encore-bundle.md) in an existing Encore project.
 
 **Details:** [../details/asset-mapper.md](../details/asset-mapper.md)
 
 ## Why it exists
 
-Modern browsers support JavaScript import statements and importmaps, and HTTP/2 lets them download many small files in parallel. The package uses these features to serve your JavaScript, CSS and npm packages with versioned file names, without a Node.js bundler. The docs recommend it for new projects. For new projects that need a bundler, they propose [Reprise](reprise.md), and they keep [Webpack Encore](webpack-encore-bundle.md) for existing Encore projects.
+Modern browsers support JavaScript import statements and importmaps, and HTTP/2 lets them download many small files in parallel. The package uses these features to serve your JavaScript, CSS and npm packages with versioned file names, without a Node.js bundler. The docs recommend it for new projects. For new projects that need a bundler, they propose [Symfony Reprise](reprise.md), and they keep [WebpackEncoreBundle](webpack-encore-bundle.md) for existing Encore projects.
 
 ## When to use it
 
@@ -31,4 +31,4 @@ Modern browsers support JavaScript import statements and importmaps, and HTTP/2 
 - One hand-written `<link rel="preload">` or `<link rel="modulepreload">` tag for each module -> `importmap()`, which preloads the import chain of the entrypoints
 - `gzip -9 -k` or `brotli` commands over `public/` in a deploy script -> `framework.asset_mapper.precompress` and `asset-map:compile`
 - `fetch('/data/users.json').then((response) => response.json())` for a JSON file of the application -> `import usersPromise from './data/users.json';`
-- A manual check of the versions and advisories of CDN libraries -> `importmap:outdated` and `importmap:audit` in CI
+- A CI script that requests `https://registry.npmjs.org/<package>` and `https://api.github.com/advisories?affects=<package>@<version>` for each library -> `importmap:outdated` and `importmap:audit`, which exit with code 1 if updates or vulnerabilities exist

@@ -2,13 +2,13 @@
 
 **Applies to:** Symfony 8.1
 
-**Elevator pitch:** Use when code must read or write a nested object or array value by a path string, for example from configuration. It calls the getters, the setters and the add and remove methods, and it can stop at null values in the path. For the types and other information about class properties, see [PropertyInfo](property-info.md).
+**Elevator pitch:** Use when code must read or write a nested object or array value by a path string, for example from configuration. It calls the getters, the setters and the add and remove methods, and it can stop at null values in the path. For the types and other information about class properties, see [PropertyInfo](property-info.md). To query JSON text with filters, wildcards or a recursive search, see [JsonPath](json-path.md).
 
 **Details:** [../details/property-access.md](../details/property-access.md)
 
 ## Why it exists
 
-Code often gets a field name or a path as a string, for example from a form option, a configuration value or a serialized key. Without this package, each caller must build method names, check that the methods exist, walk nested arrays and stop at null values. The package does this work with one call, and it keeps the access information in a cache.
+Code often gets a field name or a path as a string, for example from a form option, a configuration value or a serialized key. This applies to libraries, data import jobs, CLI tools, queue workers, API endpoints and form handlers. Without this package, each caller must build method names, check that the methods exist, walk nested arrays and stop at null values. The package does this work with one call, and it keeps the access information in a cache.
 
 ## When to use it
 

@@ -12,7 +12,7 @@ Without the package, an application must create the Twig environment, the templa
 
 ## When to use it
 
-- Render a Twig template from a controller, from other PHP code or for an email.
+- Render a Twig template for a web page or an email, from a controller, a console command, a queue worker or other PHP code.
 - Make a value or a shared object available as a variable in all templates.
 - Load templates from more directories, or group them under a namespace, for example admin.
 - Add a custom Twig filter, function or test.
@@ -33,3 +33,4 @@ Without the package, an application must create the Twig environment, the templa
 - A CI script that calls `$twig->createTemplate()` for each file in a `try`/`catch` block -> `php bin/console lint:twig --format=github`.
 - `{{ value|raw }}` at each use of a trusted HTML value object -> the `twig.safe_class` resource tag.
 - `$loader->addPath('backend/templates', 'admin')` in a manual loader setup -> `twig.paths: { 'backend/templates': 'admin' }`.
+- `file_exists($projectDir.'/templates/'.$name)` before a render -> `$twig->getLoader()->exists($name)`, which also finds the templates of `twig.paths`, namespaces and bundles.

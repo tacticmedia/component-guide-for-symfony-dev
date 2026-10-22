@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-Applications need IDs that are unique across servers and processes without a central counter. They must also store, validate and convert these IDs in text and binary forms. The package supplies UUID classes for versions 1 and 3 to 8, and a ULID class. These classes generate, parse, compare and convert the IDs.
+Web applications, message workers, CLI tools and libraries need IDs that are unique across servers and processes without a central counter. They must also store, validate and convert these IDs in text and binary forms. The package supplies UUID classes for versions 1 and 3 to 8, and a ULID class. These classes generate, parse, compare and convert the IDs.
 
 ## When to use it
 
@@ -33,4 +33,4 @@ Applications need IDs that are unique across servers and processes without a cen
 - `Uuid::fromString($request->attributes->get('id'))` and a manual `NotFoundHttpException` -> a controller argument `UuidV7 $id` (`UidValueResolver`).
 - A serializer callback or a getter that returns `(string) $this->id` for JSON -> `UidNormalizer` with the `uid_normalization_format` context key.
 - A fake UUID generator class or a `UuidFactory` mock in tests -> `new MockUuidFactory([...])`.
-- UUIDv7 primary keys in public URLs that show the creation time -> `Uuid47Transformer::encode()` for output and `Uuid47Transformer::decode()` for input.
+- A second `public_id` column with `Uuid::v4()` only to hide the UUIDv7 creation time in URLs -> `Uuid47Transformer::encode()` for output and `Uuid47Transformer::decode()` for input.

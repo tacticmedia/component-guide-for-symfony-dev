@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-Some work is too slow or too unreliable for an HTTP request, for example an email, a report or a call to a remote API. A home-made job table or queue script needs its own worker loop, retry logic and failure handling. The package puts each job into a message object. It handles the message at once, or sends it to a queue, and a worker process handles it later with retries.
+Some work is too slow or too unreliable for an HTTP request or an interactive command-line tool. Examples are an email, a report and a call to a remote API. A home-made job table or queue script needs its own worker loop, retry logic and failure handling. The package puts each job into a message object. It handles the message at once, or sends it to a queue, and a worker process handles it later with retries.
 
 ## When to use it
 

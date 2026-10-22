@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-XPath finds nodes in HTML and XML documents, but XPath expressions for common tasks are long and complex. For example, an XPath match on one class name must normalize the spaces in the class attribute first. The package converts a CSS selector to the equivalent XPath expression, so code and tests can use the shorter CSS syntax.
+XPath finds nodes in HTML and XML documents, but XPath expressions for common tasks are long and complex. For example, an XPath match on one class name must normalize the spaces in the class attribute first. The package converts a CSS selector to the equivalent XPath expression, so code can use the shorter CSS syntax. Scrapers, feed readers, CLI tools, scheduled jobs, AI agents, MCP servers and test suites use it to select nodes in HTML and XML.
 
 ## When to use it
 

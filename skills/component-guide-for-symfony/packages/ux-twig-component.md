@@ -19,6 +19,7 @@ A shared template fragment gets its variables from each page that includes it. S
 - Merge default CSS classes and HTML attributes with the attributes that the caller passes.
 - Map the color and size variants of a component to CSS classes.
 - Share a value from a parent component with all its descendant components.
+- Render a reusable HTML fragment to a string in PHP code, for example in a background worker or a CLI tool.
 - Test the props and the rendered HTML of a template fragment in an automated test.
 
 ## Use it instead of

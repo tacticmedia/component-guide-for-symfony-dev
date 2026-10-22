@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-Tests that call native time, DNS or class-existence functions are slow or unreliable, or they cannot reach the other code path. The package replaces these functions in the namespace of the tested class with mocks that the test controls. With PHPUnit 9 and older, it also collects the deprecation notices of a test run and makes the run fail above a threshold.
+Code that calls the native time, DNS or class-existence functions directly is hard to test. The tests are slow or unreliable, or they cannot reach the other code path. This applies to the tests of libraries, CLI tools, workers, scheduled jobs and web applications. The package replaces these functions in the namespace of the tested class with mocks that the test controls. With PHPUnit 9 and older, it also collects the deprecation notices of a test run and makes the run fail above a threshold.
 
 ## When to use it
 
@@ -17,7 +17,7 @@ Tests that call native time, DNS or class-existence functions are slow or unreli
 - Test the other branch of code that checks if a class, an interface, a trait or an enum exists.
 - Register the clock and DNS mocks for PHPUnit 10 or later in the PHPUnit configuration file.
 - Make PHPUnit 9 tests fail on new deprecations, with thresholds, an ignore list or a baseline.
-- Make sure that deprecated code triggers the expected deprecation message.
+- In PHPUnit 9 tests, make sure that deprecated code triggers the expected deprecation message.
 - Run the tests of a library with a PHPUnit version that its Composer dependencies do not include.
 
 ## Use it instead of
@@ -25,8 +25,8 @@ Tests that call native time, DNS or class-existence functions are slow or unreli
 - `sleep(10)` in a test, then `assertEqualsWithDelta(10000, $duration, 100)` on a Stopwatch event -> `#[TimeSensitive]` and `#[TimeSensitive(Stopwatch::class)]` on the test class, with `SymfonyExtension`. The first attribute mocks `sleep()` in the test namespace, and the second attribute mocks `microtime()` in the Stopwatch namespace. `ClockMock` then moves the clock without a wait, so `assertEquals(10000, $duration)` passes.
 - A global variable or a test-only wrapper around `time()` in code that you cannot change -> `ClockMock::register(LegacyService::class)` and `ClockMock::withClockMock(1700000000)`. For code that you can change, inject `ClockInterface` from Clock.
 - A real DNS lookup in a test, or a resolver interface that exists only for tests -> `DnsMock::withMockedHosts(['example.com' => [['type' => 'A', 'ip' => '1.2.3.4']]])` with `#[DnsSensitive(DomainValidator::class)]`.
-- A second CI job without a dev dependency, only to test the code path for a missing class -> `ClassExistsMock::withMockedClasses([DependencyClass::class => false])`.
+- A second CI job without a dev dependency, only to test the code path for a missing class -> `ClassExistsMock::register(MyClass::class)` and `ClassExistsMock::withMockedClasses([DependencyClass::class => false])`.
 - A custom `set_error_handler()` that collects `E_USER_DEPRECATED` notices and fails the run -> `SYMFONY_DEPRECATIONS_HELPER=max[direct]=0` with PHPUnit 9 and older. With PHPUnit 10.1 and later, use the PHPUnit option `failOnDeprecation="true"` instead. With PHPUnit 11.1 and later, also list `trigger_deprecation` in `<deprecationTrigger>`. With PHPUnit 10.2 and later, `<source>` also needs `ignoreSuppressionOfDeprecations="true"`.
 - A `grep -v` list of known deprecation messages in a CI script -> `ignoreFile=./tests/deprecation-ignore` or `generateBaseline=true&baselineFile=./tests/allowed.json`.
-- `set_error_handler()` in a test method to catch a deprecation message -> `ExpectDeprecationTrait::expectDeprecation('Since vendor/package 1.3: %s')` in a `legacy` test (PHPUnit 9 and older).
+- `set_error_handler()` in a test method to catch a deprecation message -> `ExpectDeprecationTrait::expectDeprecation('Since vendor/package 1.3: %s')` in a `legacy` test (PHPUnit 9 and older). With PHPUnit 11 and later, use the PHPUnit method `expectUserDeprecationMessage()` with `#[IgnoreDeprecations]` instead.
 - A `phpunit/phpunit` constraint in `require-dev` that conflicts with the dependencies of a library -> `vendor/bin/simple-phpunit` with `SYMFONY_PHPUNIT_VERSION`.

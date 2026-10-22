@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-A multilingual application needs one message for each locale, plural rules and a fallback when a translation is missing. The package loads message catalogs from translation files, selects the message for the current locale and replaces placeholders with values. Its command-line tools find new and missing translation keys and exchange the files with online translation platforms.
+A multilingual application needs one message for each locale, plural rules and a fallback when a translation is missing. Web pages, emails, command-line tools, background workers and API responses all have this need. The package loads message catalogs from translation files, selects the message for the current locale and replaces placeholders with values. Its command-line tools find new and missing translation keys and exchange the files with online translation platforms.
 
 ## When to use it
 
@@ -17,6 +17,7 @@ A multilingual application needs one message for each locale, plural rules and a
 - Show the correct plural form in each language, for example "1 file" and "5 files".
 - Format numbers, dates, ordinals and gender-specific text inside a translated message.
 - Send an email or a notification in the language of the recipient.
+- Translate the output of a command-line tool, a queue worker or a scheduled job, where no web request sets the language.
 - Translate enum labels, form labels and validation error messages.
 - Find missing or unused translation keys before a release.
 - Check the syntax of all translation files in a CI job.

@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-An email is a MIME message with encoded headers, nested multipart bodies, attachments and optional signatures. Hand-built MIME bodies and headers break easily. The package builds such messages from PHP objects and encodes them to the MIME standards. It also converts between MIME types and file extensions, and it guesses the MIME type of a file from its contents.
+An email is a MIME message with encoded headers, nested multipart bodies, attachments and optional signatures. Web applications, queue workers, scheduled jobs and CLI tools build these messages, for example to send invoices, reports or alerts. Hand-built MIME bodies and headers often contain errors, such as a wrong boundary or a header with unencoded non-ASCII text. The package builds such messages from PHP objects and encodes them to the MIME standards. It also converts between MIME types and file extensions, and it guesses the MIME type of a file from its contents.
 
 ## When to use it
 

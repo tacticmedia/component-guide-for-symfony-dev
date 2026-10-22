@@ -2,7 +2,7 @@
 
 **Applies to:** Reprise 1.3
 
-**Elevator pitch:** Use when you build JavaScript, TypeScript, Sass, React or Vue code with Vite or Rsbuild, and server-rendered pages must load the result. It renders the script and link tags of each entry, with hot module replacement in development. It is the successor of [Webpack Encore](webpack-encore-bundle.md). To skip the Node.js build step, see [AssetMapper](asset-mapper.md).
+**Elevator pitch:** Use when you build JavaScript, TypeScript, Sass, React or Vue code with Vite or Rsbuild, and server-rendered pages must load the result. It renders the script and link tags of each entry, with hot module replacement in development. It is the successor of [WebpackEncoreBundle](webpack-encore-bundle.md). To skip the Node.js build step, see [AssetMapper](asset-mapper.md).
 
 **Details:** [../details/reprise.md](../details/reprise.md)
 
@@ -15,10 +15,10 @@ Vite and Rsbuild compile, split and hash JavaScript and CSS, but they do not kno
 - Build JavaScript, TypeScript, Sass or CSS with Vite or Rsbuild for a PHP application.
 - Render the script and stylesheet tags of a bundler entry in a Twig layout.
 - Use hot module replacement from the Vite or Rsbuild dev server on pages that PHP renders.
-- Move a [Webpack Encore](webpack-encore-bundle.md) project to Vite or Rsbuild, with a one-to-one change of the template functions.
+- Move a [WebpackEncoreBundle](webpack-encore-bundle.md) project to Vite or Rsbuild, with a one-to-one change of the template functions.
 - Load the JavaScript controllers of the Symfony UX packages and your own controllers in a Vite or Rsbuild build, with [StimulusBundle](stimulus-bundle.md).
 - Serve the built files from a CDN, with Subresource Integrity hashes on the tags.
-- Add a CSP nonce or the reload attribute of [UX Turbo](ux-turbo.md) to each rendered asset tag.
+- Add a CSP nonce or the reload attribute of [Symfony UX Turbo](ux-turbo.md) to each rendered asset tag.
 - Build a second JavaScript bundle, for example an embeddable widget, with its own bundler configuration and output directory.
 
 ## Use it instead of

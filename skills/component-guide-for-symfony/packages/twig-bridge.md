@@ -13,7 +13,7 @@ Twig templates cannot use the routing, security, form and translation parts of a
 ## When to use it
 
 - Render an HTML form in Twig with a Bootstrap, Tailwind CSS, daisyUI or Foundation form theme.
-- Send an email whose HTML and text parts come from Twig templates.
+- Send an email from a web request, a worker or a scheduled job, with HTML and text parts from Twig templates.
 - Render a template from a controller action that returns an array, with a PHP attribute.
 - Use route URLs, file URLs, CSRF tokens and permission checks in Twig templates.
 - Translate text in Twig templates so that the message extraction command finds the messages.

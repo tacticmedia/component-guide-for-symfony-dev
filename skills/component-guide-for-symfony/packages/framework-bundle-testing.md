@@ -8,7 +8,7 @@
 
 ## Why it exists
 
-Tests of a full application need its objects with their real dependencies, and HTTP requests without a web server. Without these tools, tests start a real web server, parse HTML with regular expressions, or make private objects public. The package gives PHPUnit base classes, an in-process HTTP client, a dependency injection container for tests and many assertions.
+Tests of a full application need its objects with their real dependencies, and HTTP requests without a web server. Integration tests of CLI tools, message workers, scheduled jobs and AI agents need the same real objects. Without these tools, tests start a real web server, parse HTML with regular expressions, or make private objects public. The package gives PHPUnit base classes, an in-process HTTP client, a dependency injection container for tests and many assertions.
 
 ## When to use it
 

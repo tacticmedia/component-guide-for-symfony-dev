@@ -2,7 +2,7 @@
 
 **Applies to:** Symfony UX 3.5
 
-**Elevator pitch:** Use when server-rendered HTML needs JavaScript behavior, written as Stimulus controllers that attach to elements through data attributes. It registers your controllers and the controllers of installed Symfony UX packages. It loads large controllers only when a page uses them, and writes the attributes from templates. To serve the JavaScript files, see [AssetMapper](asset-mapper.md), [Webpack Encore](webpack-encore-bundle.md) or [Reprise](reprise.md).
+**Elevator pitch:** Use when server-rendered HTML needs JavaScript behavior, written as Stimulus controllers that attach to elements through data attributes. It registers your controllers and the controllers of installed Symfony UX packages. It loads large controllers only when a page uses them, and writes the attributes from templates. To serve the JavaScript files, see [AssetMapper](asset-mapper.md), [WebpackEncoreBundle](webpack-encore-bundle.md) or [Symfony Reprise](reprise.md).
 
 **Details:** [../details/stimulus-bundle.md](../details/stimulus-bundle.md)
 
@@ -19,7 +19,7 @@ Stimulus connects JavaScript classes, called controllers, to HTML elements throu
 - Write the controller, action and target attributes in a Twig template, with escaped and JSON-encoded values.
 - Add the Stimulus attributes to a form field from PHP code.
 - Pass CSS class names and outlets to a controller from a Twig template.
-- Set up Stimulus without a build step through [AssetMapper](asset-mapper.md), or with a bundler through [Webpack Encore](webpack-encore-bundle.md) or [Reprise](reprise.md).
+- Set up Stimulus without a build step through [AssetMapper](asset-mapper.md), or with a bundler through [WebpackEncoreBundle](webpack-encore-bundle.md) or [Symfony Reprise](reprise.md).
 
 ## Use it instead of
 
